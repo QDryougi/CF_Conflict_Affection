@@ -1,0 +1,110 @@
+2.6975 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+4.8538 	WARNING 	Font Manager failed to load file C:\WINDOWS\Fonts\mstmc.ttf
+5.2125 	WARNING 	Font Manager failed to load file C:\WINDOWS\Fonts\mstmc.ttf
+10.5420 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000181BE186EF0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000181BE134358>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.5424 	EXP 	window1: mouseVisible = True
+10.5424 	EXP 	window1: recordFrameIntervals = False
+10.6942 	EXP 	window1: recordFrameIntervals = True
+10.8781 	EXP 	window1: recordFrameIntervals = False
+11.6856 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='1', units='height', win=Window(...), wrapWidth=1)
+11.6935 	EXP 	Created Flanker = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Flanker', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.7, 0.7]), texRes=128.0, units='height', win=Window(...))
+11.6962 	EXP 	Created target = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='target', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.7, 0.7]), texRes=128.0, units='height', win=Window(...))
+11.6973 	EXP 	Created affectiveWords = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='affectiveWords', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+11.7010 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_2', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='2', units='height', win=Window(...), wrapWidth=1)
+11.7317 	EXP 	text: autoDraw = True
+12.1053 	EXP 	Imported test.xlsx as conditions, 40 conditions, 6 params
+12.1212 	EXP 	Created sequence: random, trialTypes=40, nReps=1, seed=None
+12.1215 	EXP 	New trial (rep=0, index=0): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+12.3549 	EXP 	text: autoDraw = False
+12.3549 	EXP 	Flanker: image = 'pics/flanker5.png'
+12.3549 	EXP 	target: image = 'pics/flanker3.png'
+12.3549 	EXP 	Flanker: autoDraw = True
+12.3574 	DATA 	Keypress: space
+12.5147 	EXP 	target: autoDraw = True
+12.5619 	EXP 	Flanker: autoDraw = False
+12.9300 	EXP 	Flanker: autoDraw = False
+12.9300 	EXP 	target: autoDraw = False
+12.9300 	EXP 	affectiveWords: text = '疑问'
+12.9300 	EXP 	affectiveWords: autoDraw = True
+14.1570 	DATA 	KeyPress: 啊
+14.8884 	DATA 	Keypress: space
+14.9337 	EXP 	New trial (rep=0, index=1): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+15.1161 	EXP 	affectiveWords: autoDraw = False
+15.1161 	EXP 	affectiveWords: autoDraw = False
+15.1161 	EXP 	Flanker: image = 'pics/flanker5.png'
+15.1161 	EXP 	target: image = 'pics/flanker1.png'
+15.1161 	EXP 	Flanker: autoDraw = True
+15.2968 	EXP 	target: autoDraw = True
+15.3278 	EXP 	Flanker: autoDraw = False
+15.6753 	EXP 	Flanker: autoDraw = False
+15.6753 	EXP 	target: autoDraw = False
+15.6753 	EXP 	affectiveWords: text = '呻吟'
+15.6753 	EXP 	affectiveWords: autoDraw = True
+16.3362 	EXP 	New trial (rep=0, index=2): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+16.4760 	EXP 	affectiveWords: autoDraw = False
+16.4760 	EXP 	Flanker: image = 'pics/flanker5.png'
+16.4760 	EXP 	target: image = 'pics/flanker3.png'
+16.4760 	EXP 	Flanker: autoDraw = True
+16.6628 	EXP 	target: autoDraw = True
+16.6794 	EXP 	Flanker: autoDraw = False
+17.0648 	EXP 	Flanker: autoDraw = False
+17.0648 	EXP 	target: autoDraw = False
+17.0648 	EXP 	affectiveWords: text = '忧虑'
+17.0648 	EXP 	affectiveWords: autoDraw = True
+17.6173 	EXP 	New trial (rep=0, index=3): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+17.7554 	EXP 	affectiveWords: autoDraw = False
+17.7554 	EXP 	Flanker: image = 'pics/flanker6.png'
+17.7554 	EXP 	target: image = 'pics/flanker4.png'
+17.7554 	EXP 	Flanker: autoDraw = True
+17.9467 	EXP 	target: autoDraw = True
+17.9633 	EXP 	Flanker: autoDraw = False
+18.1921 	EXP 	Flanker: autoDraw = False
+18.1921 	EXP 	target: autoDraw = False
+18.1921 	EXP 	affectiveWords: text = '慌忙'
+18.1921 	EXP 	affectiveWords: autoDraw = True
+18.6177 	EXP 	New trial (rep=0, index=4): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+18.7738 	EXP 	affectiveWords: autoDraw = False
+18.7738 	EXP 	Flanker: image = 'pics/flanker6.png'
+18.7738 	EXP 	target: image = 'pics/flanker2.png'
+18.7738 	EXP 	Flanker: autoDraw = True
+18.9629 	EXP 	target: autoDraw = True
+18.9796 	EXP 	Flanker: autoDraw = False
+19.0956 	EXP 	Flanker: autoDraw = False
+19.0956 	EXP 	target: autoDraw = False
+19.0956 	EXP 	affectiveWords: text = '甘甜'
+19.0956 	EXP 	affectiveWords: autoDraw = True
+19.7343 	EXP 	New trial (rep=0, index=5): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+19.8669 	EXP 	affectiveWords: autoDraw = False
+19.8669 	EXP 	Flanker: image = 'pics/flanker5.png'
+19.8669 	EXP 	target: image = 'pics/flanker3.png'
+19.8669 	EXP 	Flanker: autoDraw = True
+20.0479 	EXP 	target: autoDraw = True
+20.0813 	EXP 	Flanker: autoDraw = False
+20.3287 	EXP 	Flanker: autoDraw = False
+20.3287 	EXP 	target: autoDraw = False
+20.3287 	EXP 	affectiveWords: text = '海洋'
+20.3287 	EXP 	affectiveWords: autoDraw = True
+20.7520 	EXP 	New trial (rep=0, index=6): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+20.8869 	EXP 	affectiveWords: autoDraw = False
+20.8869 	EXP 	Flanker: image = 'pics/flanker6.png'
+20.8869 	EXP 	target: image = 'pics/flanker2.png'
+20.8869 	EXP 	Flanker: autoDraw = True
+21.0794 	EXP 	target: autoDraw = True
+21.0972 	EXP 	Flanker: autoDraw = False
+21.2954 	EXP 	Flanker: autoDraw = False
+21.2954 	EXP 	target: autoDraw = False
+21.2954 	EXP 	affectiveWords: text = '闲话'
+21.2954 	EXP 	affectiveWords: autoDraw = True
+21.8334 	EXP 	New trial (rep=0, index=7): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+21.9627 	EXP 	affectiveWords: autoDraw = False
+21.9627 	EXP 	Flanker: image = 'pics/flanker6.png'
+21.9627 	EXP 	target: image = 'pics/flanker4.png'
+21.9627 	EXP 	Flanker: autoDraw = True
+22.1471 	EXP 	target: autoDraw = True
+22.1636 	EXP 	Flanker: autoDraw = False
+22.2299 	DATA 	KeyPress: 啦
+22.9922 	EXP 	Flanker: autoDraw = False
+22.9922 	EXP 	target: autoDraw = False
+22.9922 	EXP 	affectiveWords: text = '胡涂'
+22.9922 	EXP 	affectiveWords: autoDraw = True
+23.6733 	EXP 	window1: mouseVisible = True

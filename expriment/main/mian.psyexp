@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2021.2.3">
+  <Settings>
+    <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
+    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
+    <Param name="Completed URL" updates="None" val="" valType="str"/>
+    <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
+    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['姓名'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Experiment info" updates="None" val="{'姓名': '', '性别': '', '年龄（周岁）': ''}" valType="code"/>
+    <Param name="Force stereo" updates="None" val="True" valType="bool"/>
+    <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
+    <Param name="HTML path" updates="None" val="" valType="str"/>
+    <Param name="Incomplete URL" updates="None" val="" valType="str"/>
+    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="Resources" updates="None" val="[]" valType="list"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save excel file" updates="None" val="True" valType="bool"/>
+    <Param name="Save hdf5 file" updates="None" val="False" valType="bool"/>
+    <Param name="Save log file" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Units" updates="None" val="height" valType="str"/>
+    <Param name="Use version" updates="None" val="" valType="str"/>
+    <Param name="Window size (pixels)" updates="None" val="[1920, 1080]" valType="list"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="color" updates="None" val="$[-1,-1,-1]" valType="color"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="elAddress" updates="None" val="100.1.1.1" valType="str"/>
+    <Param name="elDataFiltering" updates="None" val="FILTER_LEVEL_2" valType="str"/>
+    <Param name="elLiveFiltering" updates="None" val="FILTER_LEVEL_OFF" valType="str"/>
+    <Param name="elModel" updates="None" val="EYELINK 1000 DESKTOP" valType="str"/>
+    <Param name="elPupilAlgorithm" updates="None" val="ELLIPSE_FIT" valType="str"/>
+    <Param name="elPupilMeasure" updates="None" val="PUPIL_AREA" valType="str"/>
+    <Param name="elSampleRate" updates="None" val="1000" valType="num"/>
+    <Param name="elSimMode" updates="None" val="False" valType="bool"/>
+    <Param name="elTrackEyes" updates="None" val="RIGHT_EYE" valType="str"/>
+    <Param name="elTrackingMode" updates="None" val="PUPIL_CR_TRACKING" valType="str"/>
+    <Param name="expName" updates="None" val="mian" valType="str"/>
+    <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
+    <Param name="eyetracker" updates="None" val="None" valType="str"/>
+    <Param name="gpAddress" updates="None" val="127.0.0.1" valType="str"/>
+    <Param name="gpPort" updates="None" val="4242" valType="num"/>
+    <Param name="logging level" updates="None" val="exp" valType="code"/>
+    <Param name="mgBlink" updates="None" val="('MIDDLE_BUTTON',)" valType="list"/>
+    <Param name="mgMove" updates="None" val="CONTINUOUS" valType="str"/>
+    <Param name="mgSaccade" updates="None" val="0.5" valType="num"/>
+    <Param name="tbLicenseFile" updates="None" val="" valType="str"/>
+    <Param name="tbModel" updates="None" val="" valType="str"/>
+    <Param name="tbSampleRate" updates="None" val="60" valType="num"/>
+    <Param name="tbSerialNo" updates="None" val="" valType="str"/>
+  </Settings>
+  <Routines>
+    <Routine name="num2Word">
+      <ImageComponent name="frame">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="frame.png" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="frame" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.2, 1.2)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <TextComponent name="stimulus">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="stimulus" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="set every repeat" val="Position" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="4.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$target" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <KeyboardComponent name="respNum2word">
+        <Param name="allowedKeys" updates="constant" val="'a','l'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="$CorAns" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respNum2word" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="4.5" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="True" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="code_2">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="if (respNum2word.corr) {&amp;#10;    feedbacktext = &quot;\u221a&quot;;&amp;#10;    feedbackcolor = &quot;green&quot;;&amp;#10;} else {&amp;#10;    feedbacktext = &quot;\u00d7&quot;;&amp;#10;    feedbackcolor = &quot;red&quot;;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if respNum2word.corr:&amp;#10;    feedbacktext = &quot;√&quot;&amp;#10;    feedbackcolor = &quot;green&quot;&amp;#10;else:&amp;#10;    feedbacktext = &quot;×&quot;&amp;#10;    feedbackcolor = &quot;red&quot;" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_2" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="feedback">
+      <ImageComponent name="frame2">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="frame.png" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="frame2" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0,0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.2, 1.2)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <TextComponent name="textFBNum">
+        <Param name="color" updates="set every repeat" val="$feedbackcolor" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="textFBNum" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="set every repeat" val="Position" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$feedbacktext" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="inter">
+      <ImageComponent name="frame3">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="frame.png" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="frame3" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.2, 1.2)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+    </Routine>
+    <Routine name="endPracNum">
+      <ImageComponent name="NumEndPrac">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\NumEndPrac.PNG" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="NumEndPrac" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respEndNumP">
+        <Param name="allowedKeys" updates="constant" val="'q','p'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respEndNumP" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="code_4">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="if ((respEndNumP.keys === &quot;p&quot;)) {&amp;#10;    returnPractice.finished = true;&amp;#10;} else {&amp;#10;    returnPractice.finished = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if respEndNumP.keys == &quot;p&quot;:&amp;#10;    returnPractice.finished = True # 循环结束&amp;#10;else:&amp;#10;    returnPractice.finished = False" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_4" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="instrNum">
+      <ImageComponent name="Numinstr_p">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\NumInstr.PNG" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="Numinstr_p" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respNumPrac">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respNumPrac" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="restNum">
+      <ImageComponent name="NumRest">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\NumRest.PNG" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="NumRest" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respRest">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respRest" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="End">
+      <ImageComponent name="Endexp">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\EndExp.PNG" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="Endexp" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33,1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respEnd">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respEnd" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="GeneInstr">
+      <ImageComponent name="GeneInstr_p">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\GenInstr.png" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="GeneInstr_p" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="key_resp">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="AFF_S2">
+      <CodeComponent name="code">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;&amp;#10;# 积极词表&amp;#10;positiveWords = [&amp;#10;    &quot;畅销&quot;, &quot;诚恳&quot;, &quot;充裕&quot;, &quot;典雅&quot;,&amp;#10;    &quot;丰满&quot;, &quot;奉献&quot;, &quot;富丽&quot;, &quot;富足&quot;,&amp;#10;    &quot;公平&quot;, &quot;瑰丽&quot;, &quot;豪放&quot;, &quot;吉祥&quot;,&amp;#10;    &quot;精致&quot;, &quot;敬佩&quot;, &quot;俊秀&quot;, &quot;廉洁&quot;,&amp;#10;    &quot;留恋&quot;, &quot;前进&quot;, &quot;清秀&quot;, &quot;热切&quot;,&amp;#10;    &quot;如愿&quot;, &quot;生动&quot;, &quot;圣洁&quot;, &quot;舒畅&quot;,&amp;#10;    &quot;爽朗&quot;, &quot;顽强&quot;, &quot;旺盛&quot;, &quot;鲜艳&quot;,&amp;#10;    &quot;羡慕&quot;, &quot;享受&quot;, &quot;雄厚&quot;, &quot;秀丽&quot;,&amp;#10;    &quot;永恒&quot;, &quot;优雅&quot;, &quot;有利&quot;, &quot;赞成&quot;,&amp;#10;    &quot;珍藏&quot;, &quot;振作&quot;, &quot;正直&quot;, &quot;卓越&quot;&amp;#10;]&amp;#10;# 消极词表&amp;#10;negativeWords = [&amp;#10;    &quot;悲观&quot;, &quot;别扭&quot;, &quot;嘲笑&quot;, &quot;处罚&quot;,&amp;#10;    &quot;丢失&quot;, &quot;堵塞&quot;, &quot;罚款&quot;, &quot;烦恼&quot;,&amp;#10;    &quot;孤单&quot;, &quot;黑暗&quot;, &quot;胡涂&quot;, &quot;怀疑&quot;,&amp;#10;    &quot;慌忙&quot;, &quot;假冒&quot;, &quot;焦躁&quot;, &quot;禁止&quot;,&amp;#10;    &quot;沮丧&quot;, &quot;懒惰&quot;, &quot;浪费&quot;, &quot;冷笑&quot;,&amp;#10;    &quot;鲁莽&quot;, &quot;落后&quot;, &quot;闷热&quot;, &quot;排斥&quot;,&amp;#10;    &quot;轻率&quot;, &quot;穷苦&quot;, &quot;缺乏&quot;, &quot;撒谎&quot;,&amp;#10;    &quot;伤心&quot;, &quot;失意&quot;, &quot;损害&quot;, &quot;逃避&quot;,&amp;#10;    &quot;消沉&quot;, &quot;心慌&quot;, &quot;厌恶&quot;, &quot;忧虑&quot;,&amp;#10;    &quot;郁闷&quot;, &quot;杂乱&quot;, &quot;争吵&quot;, &quot;自卑&quot;&amp;#10;]" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;var negativeWords, positiveWords;&amp;#10;positiveWords = [&quot;\u7545\u9500&quot;, &quot;\u8bda\u6073&quot;, &quot;\u5145\u88d5&quot;, &quot;\u5178\u96c5&quot;, &quot;\u4e30\u6ee1&quot;, &quot;\u5949\u732e&quot;, &quot;\u5bcc\u4e3d&quot;, &quot;\u5bcc\u8db3&quot;, &quot;\u516c\u5e73&quot;, &quot;\u7470\u4e3d&quot;, &quot;\u8c6a\u653e&quot;, &quot;\u5409\u7965&quot;, &quot;\u7cbe\u81f4&quot;, &quot;\u656c\u4f69&quot;, &quot;\u4fca\u79c0&quot;, &quot;\u5ec9\u6d01&quot;, &quot;\u7559\u604b&quot;, &quot;\u524d\u8fdb&quot;, &quot;\u6e05\u79c0&quot;, &quot;\u70ed\u5207&quot;, &quot;\u5982\u613f&quot;, &quot;\u751f\u52a8&quot;, &quot;\u5723\u6d01&quot;, &quot;\u8212\u7545&quot;, &quot;\u723d\u6717&quot;, &quot;\u987d\u5f3a&quot;, &quot;\u65fa\u76db&quot;, &quot;\u9c9c\u8273&quot;, &quot;\u7fa1\u6155&quot;, &quot;\u4eab\u53d7&quot;, &quot;\u96c4\u539a&quot;, &quot;\u79c0\u4e3d&quot;, &quot;\u6c38\u6052&quot;, &quot;\u4f18\u96c5&quot;, &quot;\u6709\u5229&quot;, &quot;\u8d5e\u6210&quot;, &quot;\u73cd\u85cf&quot;, &quot;\u632f\u4f5c&quot;, &quot;\u6b63\u76f4&quot;, &quot;\u5353\u8d8a&quot;];&amp;#10;negativeWords = [&quot;\u60b2\u89c2&quot;, &quot;\u522b\u626d&quot;, &quot;\u5632\u7b11&quot;, &quot;\u5904\u7f5a&quot;, &quot;\u4e22\u5931&quot;, &quot;\u5835\u585e&quot;, &quot;\u7f5a\u6b3e&quot;, &quot;\u70e6\u607c&quot;, &quot;\u5b64\u5355&quot;, &quot;\u9ed1\u6697&quot;, &quot;\u80e1\u6d82&quot;, &quot;\u6000\u7591&quot;, &quot;\u614c\u5fd9&quot;, &quot;\u5047\u5192&quot;, &quot;\u7126\u8e81&quot;, &quot;\u7981\u6b62&quot;, &quot;\u6cae\u4e27&quot;, &quot;\u61d2\u60f0&quot;, &quot;\u6d6a\u8d39&quot;, &quot;\u51b7\u7b11&quot;, &quot;\u9c81\u83bd&quot;, &quot;\u843d\u540e&quot;, &quot;\u95f7\u70ed&quot;, &quot;\u6392\u65a5&quot;, &quot;\u8f7b\u7387&quot;, &quot;\u7a77\u82e6&quot;, &quot;\u7f3a\u4e4f&quot;, &quot;\u6492\u8c0e&quot;, &quot;\u4f24\u5fc3&quot;, &quot;\u5931\u610f&quot;, &quot;\u635f\u5bb3&quot;, &quot;\u9003\u907f&quot;, &quot;\u6d88\u6c89&quot;, &quot;\u5fc3\u614c&quot;, &quot;\u538c\u6076&quot;, &quot;\u5fe7\u8651&quot;, &quot;\u90c1\u95f7&quot;, &quot;\u6742\u4e71&quot;, &quot;\u4e89\u5435&quot;, &quot;\u81ea\u5351&quot;];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((AffValue === 1)) {&amp;#10;    thisWord = random.choice(positiveWords);&amp;#10;    positiveWords.remove(thisWord);&amp;#10;} else {&amp;#10;    thisWord = random.choice(negativeWords);&amp;#10;    negativeWords.remove(thisWord);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if AffValue == 1: # 积极词条件&amp;#10;    thisWord = random.choice(positiveWords)&amp;#10;    positiveWords.remove(thisWord)&amp;#10;else:&amp;#10;    thisWord = random.choice(negativeWords)&amp;#10;    negativeWords.remove(thisWord)" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="psychoJS.experiment.addData(&quot;thisWord&quot;, thisWord);&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="thisExp.addData(&quot;thisWord&quot;,thisWord)" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="AffWord">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="AffWord" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="2.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$thisWord" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <KeyboardComponent name="respAffWord">
+        <Param name="allowedKeys" updates="constant" val="'l','k'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="$corAnsA" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respAffWord" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="2.5" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="True" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="AFF_S1">
+      <ImageComponent name="flanker_p">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$flankerPic" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="flanker_p" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(0.8, 0.8)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="height" valType="str"/>
+      </ImageComponent>
+      <ImageComponent name="target_p">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$targetPic" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="target_p" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(0.8, 0.8)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.2" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="height" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respFlanker">
+        <Param name="allowedKeys" updates="constant" val="'a','s'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="$corAnsF" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respFlanker" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.2" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="True" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="restAff">
+      <CodeComponent name="code_3">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="positiveWords = [&quot;\u7545\u9500&quot;, &quot;\u8bda\u6073&quot;, &quot;\u5145\u88d5&quot;, &quot;\u5178\u96c5&quot;, &quot;\u4e30\u6ee1&quot;, &quot;\u5949\u732e&quot;, &quot;\u5bcc\u4e3d&quot;, &quot;\u5bcc\u8db3&quot;, &quot;\u516c\u5e73&quot;, &quot;\u7470\u4e3d&quot;, &quot;\u8c6a\u653e&quot;, &quot;\u5409\u7965&quot;, &quot;\u7cbe\u81f4&quot;, &quot;\u656c\u4f69&quot;, &quot;\u4fca\u79c0&quot;, &quot;\u5ec9\u6d01&quot;, &quot;\u7559\u604b&quot;, &quot;\u524d\u8fdb&quot;, &quot;\u6e05\u79c0&quot;, &quot;\u70ed\u5207&quot;, &quot;\u5982\u613f&quot;, &quot;\u751f\u52a8&quot;, &quot;\u5723\u6d01&quot;, &quot;\u8212\u7545&quot;, &quot;\u723d\u6717&quot;, &quot;\u987d\u5f3a&quot;, &quot;\u65fa\u76db&quot;, &quot;\u9c9c\u8273&quot;, &quot;\u7fa1\u6155&quot;, &quot;\u4eab\u53d7&quot;, &quot;\u96c4\u539a&quot;, &quot;\u79c0\u4e3d&quot;, &quot;\u6c38\u6052&quot;, &quot;\u4f18\u96c5&quot;, &quot;\u6709\u5229&quot;, &quot;\u8d5e\u6210&quot;, &quot;\u73cd\u85cf&quot;, &quot;\u632f\u4f5c&quot;, &quot;\u6b63\u76f4&quot;, &quot;\u5353\u8d8a&quot;];&amp;#10;negativeWords = [&quot;\u60b2\u89c2&quot;, &quot;\u522b\u626d&quot;, &quot;\u5632\u7b11&quot;, &quot;\u5904\u7f5a&quot;, &quot;\u4e22\u5931&quot;, &quot;\u5835\u585e&quot;, &quot;\u7f5a\u6b3e&quot;, &quot;\u70e6\u607c&quot;, &quot;\u5b64\u5355&quot;, &quot;\u9ed1\u6697&quot;, &quot;\u80e1\u6d82&quot;, &quot;\u6000\u7591&quot;, &quot;\u614c\u5fd9&quot;, &quot;\u5047\u5192&quot;, &quot;\u7126\u8e81&quot;, &quot;\u7981\u6b62&quot;, &quot;\u6cae\u4e27&quot;, &quot;\u61d2\u60f0&quot;, &quot;\u6d6a\u8d39&quot;, &quot;\u51b7\u7b11&quot;, &quot;\u9c81\u83bd&quot;, &quot;\u843d\u540e&quot;, &quot;\u95f7\u70ed&quot;, &quot;\u6392\u65a5&quot;, &quot;\u8f7b\u7387&quot;, &quot;\u7a77\u82e6&quot;, &quot;\u7f3a\u4e4f&quot;, &quot;\u6492\u8c0e&quot;, &quot;\u4f24\u5fc3&quot;, &quot;\u5931\u610f&quot;, &quot;\u635f\u5bb3&quot;, &quot;\u9003\u907f&quot;, &quot;\u6d88\u6c89&quot;, &quot;\u5fc3\u614c&quot;, &quot;\u538c\u6076&quot;, &quot;\u5fe7\u8651&quot;, &quot;\u90c1\u95f7&quot;, &quot;\u6742\u4e71&quot;, &quot;\u4e89\u5435&quot;, &quot;\u81ea\u5351&quot;];&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="# 积极词表&amp;#10;positiveWords = [&amp;#10;    &quot;畅销&quot;, &quot;诚恳&quot;, &quot;充裕&quot;, &quot;典雅&quot;,&amp;#10;    &quot;丰满&quot;, &quot;奉献&quot;, &quot;富丽&quot;, &quot;富足&quot;,&amp;#10;    &quot;公平&quot;, &quot;瑰丽&quot;, &quot;豪放&quot;, &quot;吉祥&quot;,&amp;#10;    &quot;精致&quot;, &quot;敬佩&quot;, &quot;俊秀&quot;, &quot;廉洁&quot;,&amp;#10;    &quot;留恋&quot;, &quot;前进&quot;, &quot;清秀&quot;, &quot;热切&quot;,&amp;#10;    &quot;如愿&quot;, &quot;生动&quot;, &quot;圣洁&quot;, &quot;舒畅&quot;,&amp;#10;    &quot;爽朗&quot;, &quot;顽强&quot;, &quot;旺盛&quot;, &quot;鲜艳&quot;,&amp;#10;    &quot;羡慕&quot;, &quot;享受&quot;, &quot;雄厚&quot;, &quot;秀丽&quot;,&amp;#10;    &quot;永恒&quot;, &quot;优雅&quot;, &quot;有利&quot;, &quot;赞成&quot;,&amp;#10;    &quot;珍藏&quot;, &quot;振作&quot;, &quot;正直&quot;, &quot;卓越&quot;&amp;#10;]&amp;#10;# 消极词表&amp;#10;negativeWords = [&amp;#10;    &quot;悲观&quot;, &quot;别扭&quot;, &quot;嘲笑&quot;, &quot;处罚&quot;,&amp;#10;    &quot;丢失&quot;, &quot;堵塞&quot;, &quot;罚款&quot;, &quot;烦恼&quot;,&amp;#10;    &quot;孤单&quot;, &quot;黑暗&quot;, &quot;胡涂&quot;, &quot;怀疑&quot;,&amp;#10;    &quot;慌忙&quot;, &quot;假冒&quot;, &quot;焦躁&quot;, &quot;禁止&quot;,&amp;#10;    &quot;沮丧&quot;, &quot;懒惰&quot;, &quot;浪费&quot;, &quot;冷笑&quot;,&amp;#10;    &quot;鲁莽&quot;, &quot;落后&quot;, &quot;闷热&quot;, &quot;排斥&quot;,&amp;#10;    &quot;轻率&quot;, &quot;穷苦&quot;, &quot;缺乏&quot;, &quot;撒谎&quot;,&amp;#10;    &quot;伤心&quot;, &quot;失意&quot;, &quot;损害&quot;, &quot;逃避&quot;,&amp;#10;    &quot;消沉&quot;, &quot;心慌&quot;, &quot;厌恶&quot;, &quot;忧虑&quot;,&amp;#10;    &quot;郁闷&quot;, &quot;杂乱&quot;, &quot;争吵&quot;, &quot;自卑&quot;&amp;#10;]" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_3" valType="code"/>
+      </CodeComponent>
+      <ImageComponent name="AffRest">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$RestPic" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="AffRest" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respRest_2">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respRest_2" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="AffInstr">
+      <ImageComponent name="AffInsr_P">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\AffInstr.png" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="AffInsr_P" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respAffInstr">
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respAffInstr" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="endPracAff">
+      <CodeComponent name="code_5">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="if ((respEndPracA.keys === &quot;p&quot;)) {&amp;#10;    returnPrac.finished = true;&amp;#10;} else {&amp;#10;    returnPrac.finished = false;&amp;#10;}&amp;#10;positiveWords = [&quot;\u7545\u9500&quot;, &quot;\u8bda\u6073&quot;, &quot;\u5145\u88d5&quot;, &quot;\u5178\u96c5&quot;, &quot;\u4e30\u6ee1&quot;, &quot;\u5949\u732e&quot;, &quot;\u5bcc\u4e3d&quot;, &quot;\u5bcc\u8db3&quot;, &quot;\u516c\u5e73&quot;, &quot;\u7470\u4e3d&quot;, &quot;\u8c6a\u653e&quot;, &quot;\u5409\u7965&quot;, &quot;\u7cbe\u81f4&quot;, &quot;\u656c\u4f69&quot;, &quot;\u4fca\u79c0&quot;, &quot;\u5ec9\u6d01&quot;, &quot;\u7559\u604b&quot;, &quot;\u524d\u8fdb&quot;, &quot;\u6e05\u79c0&quot;, &quot;\u70ed\u5207&quot;, &quot;\u5982\u613f&quot;, &quot;\u751f\u52a8&quot;, &quot;\u5723\u6d01&quot;, &quot;\u8212\u7545&quot;, &quot;\u723d\u6717&quot;, &quot;\u987d\u5f3a&quot;, &quot;\u65fa\u76db&quot;, &quot;\u9c9c\u8273&quot;, &quot;\u7fa1\u6155&quot;, &quot;\u4eab\u53d7&quot;, &quot;\u96c4\u539a&quot;, &quot;\u79c0\u4e3d&quot;, &quot;\u6c38\u6052&quot;, &quot;\u4f18\u96c5&quot;, &quot;\u6709\u5229&quot;, &quot;\u8d5e\u6210&quot;, &quot;\u73cd\u85cf&quot;, &quot;\u632f\u4f5c&quot;, &quot;\u6b63\u76f4&quot;, &quot;\u5353\u8d8a&quot;];&amp;#10;negativeWords = [&quot;\u60b2\u89c2&quot;, &quot;\u522b\u626d&quot;, &quot;\u5632\u7b11&quot;, &quot;\u5904\u7f5a&quot;, &quot;\u4e22\u5931&quot;, &quot;\u5835\u585e&quot;, &quot;\u7f5a\u6b3e&quot;, &quot;\u70e6\u607c&quot;, &quot;\u5b64\u5355&quot;, &quot;\u9ed1\u6697&quot;, &quot;\u80e1\u6d82&quot;, &quot;\u6000\u7591&quot;, &quot;\u614c\u5fd9&quot;, &quot;\u5047\u5192&quot;, &quot;\u7126\u8e81&quot;, &quot;\u7981\u6b62&quot;, &quot;\u6cae\u4e27&quot;, &quot;\u61d2\u60f0&quot;, &quot;\u6d6a\u8d39&quot;, &quot;\u51b7\u7b11&quot;, &quot;\u9c81\u83bd&quot;, &quot;\u843d\u540e&quot;, &quot;\u95f7\u70ed&quot;, &quot;\u6392\u65a5&quot;, &quot;\u8f7b\u7387&quot;, &quot;\u7a77\u82e6&quot;, &quot;\u7f3a\u4e4f&quot;, &quot;\u6492\u8c0e&quot;, &quot;\u4f24\u5fc3&quot;, &quot;\u5931\u610f&quot;, &quot;\u635f\u5bb3&quot;, &quot;\u9003\u907f&quot;, &quot;\u6d88\u6c89&quot;, &quot;\u5fc3\u614c&quot;, &quot;\u538c\u6076&quot;, &quot;\u5fe7\u8651&quot;, &quot;\u90c1\u95f7&quot;, &quot;\u6742\u4e71&quot;, &quot;\u4e89\u5435&quot;, &quot;\u81ea\u5351&quot;];&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if respEndPracA.keys == &quot;p&quot;:&amp;#10;    returnPrac.finished = True # 循环结束&amp;#10;else:&amp;#10;    returnPrac.finished = False&amp;#10;&amp;#10;positiveWords = [&amp;#10;    &quot;畅销&quot;, &quot;诚恳&quot;, &quot;充裕&quot;, &quot;典雅&quot;,&amp;#10;    &quot;丰满&quot;, &quot;奉献&quot;, &quot;富丽&quot;, &quot;富足&quot;,&amp;#10;    &quot;公平&quot;, &quot;瑰丽&quot;, &quot;豪放&quot;, &quot;吉祥&quot;,&amp;#10;    &quot;精致&quot;, &quot;敬佩&quot;, &quot;俊秀&quot;, &quot;廉洁&quot;,&amp;#10;    &quot;留恋&quot;, &quot;前进&quot;, &quot;清秀&quot;, &quot;热切&quot;,&amp;#10;    &quot;如愿&quot;, &quot;生动&quot;, &quot;圣洁&quot;, &quot;舒畅&quot;,&amp;#10;    &quot;爽朗&quot;, &quot;顽强&quot;, &quot;旺盛&quot;, &quot;鲜艳&quot;,&amp;#10;    &quot;羡慕&quot;, &quot;享受&quot;, &quot;雄厚&quot;, &quot;秀丽&quot;,&amp;#10;    &quot;永恒&quot;, &quot;优雅&quot;, &quot;有利&quot;, &quot;赞成&quot;,&amp;#10;    &quot;珍藏&quot;, &quot;振作&quot;, &quot;正直&quot;, &quot;卓越&quot;&amp;#10;]&amp;#10;# 消极词表&amp;#10;negativeWords = [&amp;#10;    &quot;悲观&quot;, &quot;别扭&quot;, &quot;嘲笑&quot;, &quot;处罚&quot;,&amp;#10;    &quot;丢失&quot;, &quot;堵塞&quot;, &quot;罚款&quot;, &quot;烦恼&quot;,&amp;#10;    &quot;孤单&quot;, &quot;黑暗&quot;, &quot;胡涂&quot;, &quot;怀疑&quot;,&amp;#10;    &quot;慌忙&quot;, &quot;假冒&quot;, &quot;焦躁&quot;, &quot;禁止&quot;,&amp;#10;    &quot;沮丧&quot;, &quot;懒惰&quot;, &quot;浪费&quot;, &quot;冷笑&quot;,&amp;#10;    &quot;鲁莽&quot;, &quot;落后&quot;, &quot;闷热&quot;, &quot;排斥&quot;,&amp;#10;    &quot;轻率&quot;, &quot;穷苦&quot;, &quot;缺乏&quot;, &quot;撒谎&quot;,&amp;#10;    &quot;伤心&quot;, &quot;失意&quot;, &quot;损害&quot;, &quot;逃避&quot;,&amp;#10;    &quot;消沉&quot;, &quot;心慌&quot;, &quot;厌恶&quot;, &quot;忧虑&quot;,&amp;#10;    &quot;郁闷&quot;, &quot;杂乱&quot;, &quot;争吵&quot;, &quot;自卑&quot;&amp;#10;]" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_5" valType="code"/>
+      </CodeComponent>
+      <ImageComponent name="endPracA_p">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="constant" val="pic\AffEndPrac.PNG" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="endPracA_p" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="size" updates="constant" val="(1.33, 1)" valType="list"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <KeyboardComponent name="respEndPracA">
+        <Param name="allowedKeys" updates="constant" val="'p','q'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="respEndPracA" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="intervals">
+      <CodeComponent name="code_6">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="times = [0.3,0.5,0.4,0.35,0.45]" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="times = [0.3, 0.5, 0.4, 0.35, 0.45];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixTime = random.choice(times);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="fixTime = random.choice(times)" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_6" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="text">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="text" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0.6" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="1.2" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$fixTime" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="+" valType="str"/>
+        <Param name="units" updates="None" val="height" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <TextComponent name="blank">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="blank" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.2" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="GeneInstr"/>
+    <LoopInitiator loopType="TrialHandler" name="returnPractice">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="99" valType="num"/>
+      <Param name="name" updates="None" val="returnPractice" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="instrNum"/>
+    <LoopInitiator loopType="TrialHandler" name="pracNum">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'target': '2A', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Position': [0.2, 0.2]}, {'target': 'A9', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Position': [-0.2, 0.2]}, {'target': '7e', '反应类型': 2, '条件': 1, 'truetarget': 7.0, 'CorAns': 'a', 'Position': [-0.2, -0.2]}, {'target': '9H', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Position': [0.2, -0.2]}, {'target': 'h4', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Position': [0.2, 0.2]}, {'target': '4H', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Position': [-0.2, 0.2]}, {'target': 'F8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Position': [-0.2, -0.2]}, {'target': 'h7', '反应类型': 2, '条件': 2, 'truetarget': 7.0, 'CorAns': 'a', 'Position': [0.2, -0.2]}, {'target': '5e', '反应类型': 1, '条件': 1, 'truetarget': 'e', 'CorAns': 'l', 'Position': [0.2, 0.2]}, {'target': 'e8', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Position': [-0.2, 0.2]}, {'target': '4E', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Position': [-0.2, -0.2]}, {'target': '5H', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Position': [0.2, -0.2]}, {'target': '9E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Position': [0.2, 0.2]}, {'target': 'h9', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Position': [-0.2, 0.2]}, {'target': '2a', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Position': [-0.2, -0.2]}, {'target': 'e5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Position': [0.2, -0.2]}, {'target': 'A5', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Position': [0.2, 0.2]}, {'target': 'a6', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Position': [-0.2, 0.2]}, {'target': '2F', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Position': [-0.2, -0.2]}, {'target': 'e4', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Position': [0.2, -0.2]}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="NumPractise.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="pracNum" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="num2Word"/>
+    <Routine name="feedback"/>
+    <LoopTerminator name="pracNum"/>
+    <Routine name="endPracNum"/>
+    <LoopTerminator name="returnPractice"/>
+    <Routine name="inter"/>
+    <LoopInitiator loopType="TrialHandler" name="NumBlock1">
+      <Param name="Selected rows" updates="None" val="0:80" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'target': '7h', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8F', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '8h', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'a2', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '8f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '6a', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'h6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'f9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E4', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5G', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'h3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9e', '反应类型': 1, '条件': 1, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'a8', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3f', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'a7', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5A', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8g', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '9a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'f7', '反应类型': 1, '条件': 2, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'g9', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '3h', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E6', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'F6', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '3A', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8H', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '5a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '2h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e5', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'f3', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '2E', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2H', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'H8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '9g', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '5h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '9h', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'G3', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '9A', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'H5', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4e', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'E2', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'A5', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2A', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '6G', '反应类型': 2, '条件': 2, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'H3', '反应类型': 1, '条件': 1, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'H2', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e9', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '2G', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '4f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'H6', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3F', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7e', '反应类型': 1, '条件': 1, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F9', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '5F', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'f6', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '7G', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3G', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '5E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'A6', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'E3', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '2f', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g3', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'E8', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6g', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '5H', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '4A', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '7F', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6H', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3a', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9F', '反应类型': 1, '条件': 1, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'G7', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'a6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4h', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '6A', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '4H', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '3H', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E7', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '8A', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'f5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '2a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F7', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'h2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'F5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'A9', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '3e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'f8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'G2', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'F2', '反应类型': 1, '条件': 1, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '5e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'A3', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4g', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'h7', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '3g', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '8a', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4E', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'E5', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'g6', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '2e', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'h8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'G6', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'a4', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '9H', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '7H', '反应类型': 2, '条件': 2, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8E', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'H7', '反应类型': 2, '条件': 2, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'h9', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8G', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'H4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'A8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g7', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'H9', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '9E', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '3E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6f', '反应类型': 1, '条件': 2, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'g8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4F', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '4a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'e3', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5g', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'f4', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '6E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '7A', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'F4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '2g', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '7E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'G4', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2F', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'E9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '5f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'e7', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'f2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'G9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7g', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F8', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A7', '反应类型': 2, '条件': 1, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4G', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g2', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'g4', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '7a', '反应类型': 2, '条件': 1, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8e', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'h4', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'G8', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6F', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'g5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'G5', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'h5', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '9G', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'F3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="NumCon.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="NumBlock1" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="num2Word"/>
+    <LoopTerminator name="NumBlock1"/>
+    <Routine name="restNum"/>
+    <LoopInitiator loopType="TrialHandler" name="NumBlock2">
+      <Param name="Selected rows" updates="None" val="80:160" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'target': '7h', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8F', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '8h', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'a2', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '8f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '6a', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'h6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'f9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E4', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5G', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'h3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9e', '反应类型': 1, '条件': 1, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'a8', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3f', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'a7', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5A', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8g', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '9a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'f7', '反应类型': 1, '条件': 2, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'g9', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '3h', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E6', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'F6', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '3A', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8H', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '5a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '2h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e5', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'f3', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '2E', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2H', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'H8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '9g', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '5h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'e4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '9h', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'G3', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '9A', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'H5', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4e', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'E2', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'A5', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2A', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '6G', '反应类型': 2, '条件': 2, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'H3', '反应类型': 1, '条件': 1, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'H2', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e9', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '2G', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '4f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'H6', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3F', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7e', '反应类型': 1, '条件': 1, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F9', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '5F', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'f6', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '7G', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'e6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3G', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '5E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'A6', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'E3', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '2f', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g3', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'E8', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6g', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '5H', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '4A', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '7F', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6H', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '3a', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9F', '反应类型': 1, '条件': 1, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'G7', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'a6', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4h', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '6A', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '4H', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '3H', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'E7', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6h', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '8A', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'f5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '2a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F7', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'h2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'F5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'A9', '反应类型': 1, '条件': 1, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '3e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'f8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'G2', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'F2', '反应类型': 1, '条件': 1, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '5e', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'A3', '反应类型': 2, '条件': 1, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4g', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'h7', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '3g', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '8a', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4E', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'E5', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'g6', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '2e', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'h8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'G6', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'a4', '反应类型': 1, '条件': 2, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '9H', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '7H', '反应类型': 2, '条件': 2, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '9f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8E', '反应类型': 1, '条件': 2, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'H7', '反应类型': 2, '条件': 2, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'h9', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': '8G', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'H4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'A8', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g7', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'H9', '反应类型': 1, '条件': 2, 'truetarget': 'H', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '9E', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'a5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '3E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '6f', '反应类型': 1, '条件': 2, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'g8', '反应类型': 2, '条件': 1, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '4F', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '4a', '反应类型': 1, '条件': 1, 'truetarget': 'a', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'e3', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '5g', '反应类型': 2, '条件': 1, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'f4', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '6E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': '7A', '反应类型': 1, '条件': 2, 'truetarget': 'A', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'F4', '反应类型': 2, '条件': 1, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': '2g', '反应类型': 2, '条件': 2, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': '7E', '反应类型': 1, '条件': 1, 'truetarget': 'E', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'G4', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '2F', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'E9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '5f', '反应类型': 1, '条件': 1, 'truetarget': 'f', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'e7', '反应类型': 1, '条件': 2, 'truetarget': 'e', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': 'f2', '反应类型': 2, '条件': 1, 'truetarget': 2.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'G9', '反应类型': 2, '条件': 2, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': '7g', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'F8', '反应类型': 1, '条件': 2, 'truetarget': 'F', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': 'A7', '反应类型': 2, '条件': 1, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '4G', '反应类型': 2, '条件': 2, 'truetarget': 4.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'g2', '反应类型': 1, '条件': 1, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'g4', '反应类型': 1, '条件': 2, 'truetarget': 'g', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '7a', '反应类型': 2, '条件': 1, 'truetarget': 7.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': '8e', '反应类型': 2, '条件': 2, 'truetarget': 8.0, 'CorAns': 'l', 'Positon': [0.2, -0.2]}, {'target': 'h4', '反应类型': 1, '条件': 1, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [0.2, 0.2]}, {'target': 'G8', '反应类型': 1, '条件': 2, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [-0.2, 0.2]}, {'target': '6F', '反应类型': 2, '条件': 1, 'truetarget': 6.0, 'CorAns': 'l', 'Positon': [-0.2, -0.2]}, {'target': 'g5', '反应类型': 2, '条件': 2, 'truetarget': 5.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}, {'target': 'G5', '反应类型': 1, '条件': 1, 'truetarget': 'G', 'CorAns': 'a', 'Positon': [0.2, 0.2]}, {'target': 'h5', '反应类型': 1, '条件': 2, 'truetarget': 'h', 'CorAns': 'l', 'Positon': [-0.2, 0.2]}, {'target': '9G', '反应类型': 2, '条件': 1, 'truetarget': 9.0, 'CorAns': 'a', 'Positon': [-0.2, -0.2]}, {'target': 'F3', '反应类型': 2, '条件': 2, 'truetarget': 3.0, 'CorAns': 'a', 'Positon': [0.2, -0.2]}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="NumCon.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="NumBlock2" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="num2Word"/>
+    <LoopTerminator name="NumBlock2"/>
+    <LoopInitiator loopType="TrialHandler" name="returnPrac">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="99" valType="num"/>
+      <Param name="name" updates="None" val="returnPrac" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="AffInstr"/>
+    <LoopInitiator loopType="TrialHandler" name="PracAff">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="AFFPrac.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="PracAff" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="intervals"/>
+    <Routine name="AFF_S1"/>
+    <Routine name="AFF_S2"/>
+    <LoopTerminator name="PracAff"/>
+    <Routine name="endPracAff"/>
+    <LoopTerminator name="returnPrac"/>
+    <LoopInitiator loopType="TrialHandler" name="AffBlocks">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'RestPic': 'AffRest1.png'}, {'RestPic': 'AffRest2.png'}, {'RestPic': 'AffRest3.png'}, {'RestPic': 'EndExp.PNG'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="AffLoop.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="AffBlocks" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <LoopInitiator loopType="TrialHandler" name="AffBlock1">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}, {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}, {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}, {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="AFFcon.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="AffBlock1" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="intervals"/>
+    <Routine name="AFF_S1"/>
+    <Routine name="AFF_S2"/>
+    <LoopTerminator name="AffBlock1"/>
+    <Routine name="restAff"/>
+    <LoopTerminator name="AffBlocks"/>
+  </Flow>
+</PsychoPy2experiment>

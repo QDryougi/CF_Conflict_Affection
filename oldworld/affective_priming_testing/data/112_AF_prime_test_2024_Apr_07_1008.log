@@ -1,0 +1,544 @@
+2.6200 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+4.3539 	WARNING 	Font Manager failed to load file C:\WINDOWS\Fonts\mstmc.ttf
+4.7048 	WARNING 	Font Manager failed to load file C:\WINDOWS\Fonts\mstmc.ttf
+11.0709 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1, -1, -1]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002020EFB8EF0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000002020EF64358>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+11.0711 	EXP 	window1: mouseVisible = True
+11.0711 	EXP 	window1: recordFrameIntervals = False
+11.2371 	EXP 	window1: recordFrameIntervals = True
+11.4212 	EXP 	window1: recordFrameIntervals = False
+12.0435 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='1', units='height', win=Window(...), wrapWidth=1)
+12.0468 	EXP 	Created Flanker = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Flanker', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+12.0496 	EXP 	Created target = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='target', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+12.0508 	EXP 	Created affectiveWords = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='affectiveWords', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+12.0543 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_2', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='2', units='height', win=Window(...), wrapWidth=1)
+12.0989 	EXP 	text: autoDraw = True
+12.7468 	EXP 	Imported test.xlsx as conditions, 40 conditions, 6 params
+12.7474 	EXP 	Created sequence: random, trialTypes=40, nReps=1, seed=None
+12.7477 	EXP 	New trial (rep=0, index=0): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+13.0714 	EXP 	text: autoDraw = False
+13.0714 	EXP 	Flanker: image = 'pics/flanker5.png'
+13.0714 	EXP 	target: image = 'pics/flanker1.png'
+13.0714 	EXP 	Flanker: autoDraw = True
+13.0744 	DATA 	Keypress: space
+13.1239 	DATA 	Keypress: space
+13.2414 	EXP 	target: autoDraw = True
+13.2720 	EXP 	Flanker: autoDraw = False
+13.6749 	EXP 	Flanker: autoDraw = False
+13.6749 	EXP 	target: autoDraw = False
+13.6749 	EXP 	affectiveWords: text = '婚事'
+13.6749 	EXP 	affectiveWords: autoDraw = True
+13.6816 	DATA 	Keypress: l
+14.4427 	EXP 	New trial (rep=0, index=1): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+14.5823 	EXP 	affectiveWords: autoDraw = False
+14.5823 	EXP 	Flanker: image = 'pics/flanker5.png'
+14.5823 	EXP 	target: image = 'pics/flanker1.png'
+14.5823 	EXP 	Flanker: autoDraw = True
+14.5851 	DATA 	Keypress: a
+14.7749 	EXP 	target: autoDraw = True
+14.7887 	EXP 	Flanker: autoDraw = False
+15.1928 	DATA 	Keypress: l
+15.7874 	EXP 	target: autoDraw = False
+15.7874 	EXP 	Flanker: autoDraw = False
+15.7874 	EXP 	target: autoDraw = False
+15.7874 	EXP 	affectiveWords: text = '名胜'
+15.7874 	EXP 	affectiveWords: autoDraw = True
+16.4922 	EXP 	New trial (rep=0, index=2): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+16.6249 	EXP 	affectiveWords: autoDraw = False
+16.6249 	EXP 	Flanker: image = 'pics/flanker5.png'
+16.6249 	EXP 	target: image = 'pics/flanker3.png'
+16.6249 	EXP 	Flanker: autoDraw = True
+16.6274 	DATA 	Keypress: a
+16.8082 	EXP 	target: autoDraw = True
+16.8221 	EXP 	Flanker: autoDraw = False
+17.2590 	EXP 	Flanker: autoDraw = False
+17.2590 	EXP 	target: autoDraw = False
+17.2590 	EXP 	affectiveWords: text = '可怜'
+17.2590 	EXP 	affectiveWords: autoDraw = True
+17.2657 	DATA 	Keypress: a
+18.1251 	EXP 	New trial (rep=0, index=3): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+18.2660 	EXP 	affectiveWords: autoDraw = False
+18.2660 	EXP 	Flanker: image = 'pics/flanker5.png'
+18.2660 	EXP 	target: image = 'pics/flanker3.png'
+18.2660 	EXP 	Flanker: autoDraw = True
+18.2680 	DATA 	Keypress: l
+18.4582 	EXP 	target: autoDraw = True
+18.4720 	EXP 	Flanker: autoDraw = False
+18.8602 	DATA 	Keypress: a
+18.8633 	EXP 	Flanker: autoDraw = False
+18.8633 	EXP 	target: autoDraw = False
+18.8633 	EXP 	affectiveWords: text = '落后'
+18.8633 	EXP 	affectiveWords: autoDraw = True
+19.5097 	EXP 	New trial (rep=0, index=4): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+19.6678 	EXP 	affectiveWords: autoDraw = False
+19.6678 	EXP 	Flanker: image = 'pics/flanker6.png'
+19.6678 	EXP 	target: image = 'pics/flanker2.png'
+19.6678 	EXP 	Flanker: autoDraw = True
+19.6713 	DATA 	Keypress: l
+19.8413 	EXP 	target: autoDraw = True
+19.8716 	EXP 	Flanker: autoDraw = False
+20.1914 	EXP 	Flanker: autoDraw = False
+20.1914 	EXP 	target: autoDraw = False
+20.1914 	EXP 	affectiveWords: text = '精品'
+20.1914 	EXP 	affectiveWords: autoDraw = True
+20.1979 	DATA 	Keypress: a
+20.9747 	EXP 	New trial (rep=0, index=5): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+21.1065 	EXP 	affectiveWords: autoDraw = False
+21.1065 	EXP 	Flanker: image = 'pics/flanker6.png'
+21.1065 	EXP 	target: image = 'pics/flanker4.png'
+21.1065 	EXP 	Flanker: autoDraw = True
+21.1088 	DATA 	Keypress: a
+21.2912 	EXP 	target: autoDraw = True
+21.3050 	EXP 	Flanker: autoDraw = False
+21.7048 	EXP 	Flanker: autoDraw = False
+21.7048 	EXP 	target: autoDraw = False
+21.7048 	EXP 	affectiveWords: text = '厌恶'
+21.7048 	EXP 	affectiveWords: autoDraw = True
+21.7118 	DATA 	Keypress: l
+22.6444 	EXP 	New trial (rep=0, index=6): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+22.8185 	EXP 	affectiveWords: autoDraw = False
+22.8185 	EXP 	Flanker: image = 'pics/flanker5.png'
+22.8185 	EXP 	target: image = 'pics/flanker3.png'
+22.8185 	EXP 	Flanker: autoDraw = True
+22.8207 	DATA 	Keypress: l
+23.0082 	EXP 	target: autoDraw = True
+23.0220 	EXP 	Flanker: autoDraw = False
+23.4020 	DATA 	Keypress: a
+23.4049 	EXP 	Flanker: autoDraw = False
+23.4049 	EXP 	target: autoDraw = False
+23.4049 	EXP 	affectiveWords: text = '廉洁'
+23.4049 	EXP 	affectiveWords: autoDraw = True
+24.0750 	EXP 	New trial (rep=0, index=7): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+24.2009 	EXP 	affectiveWords: autoDraw = False
+24.2009 	EXP 	Flanker: image = 'pics/flanker6.png'
+24.2009 	EXP 	target: image = 'pics/flanker4.png'
+24.2009 	EXP 	Flanker: autoDraw = True
+24.2038 	DATA 	Keypress: a
+24.3917 	EXP 	target: autoDraw = True
+24.4054 	EXP 	Flanker: autoDraw = False
+24.8437 	DATA 	Keypress: l
+24.8470 	EXP 	Flanker: autoDraw = False
+24.8470 	EXP 	target: autoDraw = False
+24.8470 	EXP 	affectiveWords: text = '卓越'
+24.8470 	EXP 	affectiveWords: autoDraw = True
+25.8936 	EXP 	New trial (rep=0, index=8): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+26.0406 	EXP 	affectiveWords: autoDraw = False
+26.0406 	EXP 	Flanker: image = 'pics/flanker6.png'
+26.0406 	EXP 	target: image = 'pics/flanker2.png'
+26.0406 	EXP 	Flanker: autoDraw = True
+26.0435 	DATA 	Keypress: a
+26.2249 	EXP 	target: autoDraw = True
+26.2387 	EXP 	Flanker: autoDraw = False
+26.5754 	EXP 	Flanker: autoDraw = False
+26.5754 	EXP 	target: autoDraw = False
+26.5754 	EXP 	affectiveWords: text = '苍蝇'
+26.5754 	EXP 	affectiveWords: autoDraw = True
+26.5826 	DATA 	Keypress: a
+27.2447 	EXP 	New trial (rep=0, index=9): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+27.4162 	EXP 	affectiveWords: autoDraw = False
+27.4162 	EXP 	Flanker: image = 'pics/flanker6.png'
+27.4162 	EXP 	target: image = 'pics/flanker2.png'
+27.4162 	EXP 	Flanker: autoDraw = True
+27.4188 	DATA 	Keypress: l
+27.6079 	EXP 	target: autoDraw = True
+27.6220 	EXP 	Flanker: autoDraw = False
+27.9405 	DATA 	Keypress: a
+27.9433 	EXP 	Flanker: autoDraw = False
+27.9433 	EXP 	target: autoDraw = False
+27.9433 	EXP 	affectiveWords: text = '优雅'
+27.9433 	EXP 	affectiveWords: autoDraw = True
+29.2089 	EXP 	New trial (rep=0, index=10): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+29.3282 	DATA 	Keypress: a
+29.3396 	EXP 	affectiveWords: autoDraw = False
+29.3396 	EXP 	Flanker: image = 'pics/flanker5.png'
+29.3396 	EXP 	target: image = 'pics/flanker3.png'
+29.3396 	EXP 	Flanker: autoDraw = True
+29.5248 	EXP 	target: autoDraw = True
+29.5388 	EXP 	Flanker: autoDraw = False
+30.1377 	EXP 	Flanker: autoDraw = False
+30.1377 	EXP 	target: autoDraw = False
+30.1377 	EXP 	affectiveWords: text = '责怪'
+30.1377 	EXP 	affectiveWords: autoDraw = True
+30.1438 	DATA 	Keypress: a
+31.2085 	EXP 	New trial (rep=0, index=11): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+31.3460 	EXP 	affectiveWords: autoDraw = False
+31.3460 	EXP 	Flanker: image = 'pics/flanker5.png'
+31.3460 	EXP 	target: image = 'pics/flanker1.png'
+31.3460 	EXP 	Flanker: autoDraw = True
+31.3487 	DATA 	Keypress: l
+31.5416 	EXP 	target: autoDraw = True
+31.5553 	EXP 	Flanker: autoDraw = False
+31.9399 	EXP 	Flanker: autoDraw = False
+31.9399 	EXP 	target: autoDraw = False
+31.9399 	EXP 	affectiveWords: text = '疑问'
+31.9399 	EXP 	affectiveWords: autoDraw = True
+31.9463 	DATA 	Keypress: l
+33.4077 	EXP 	New trial (rep=0, index=12): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+33.5288 	DATA 	Keypress: a
+33.5387 	EXP 	affectiveWords: autoDraw = False
+33.5387 	EXP 	Flanker: image = 'pics/flanker6.png'
+33.5387 	EXP 	target: image = 'pics/flanker4.png'
+33.5387 	EXP 	Flanker: autoDraw = True
+33.7243 	EXP 	target: autoDraw = True
+33.7384 	EXP 	Flanker: autoDraw = False
+34.1887 	EXP 	Flanker: autoDraw = False
+34.1887 	EXP 	target: autoDraw = False
+34.1887 	EXP 	affectiveWords: text = '端庄'
+34.1887 	EXP 	affectiveWords: autoDraw = True
+34.1953 	DATA 	Keypress: l
+35.3081 	EXP 	New trial (rep=0, index=13): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+35.4408 	EXP 	affectiveWords: autoDraw = False
+35.4408 	EXP 	Flanker: image = 'pics/flanker5.png'
+35.4408 	EXP 	target: image = 'pics/flanker3.png'
+35.4408 	EXP 	Flanker: autoDraw = True
+35.4433 	DATA 	Keypress: l
+35.6245 	EXP 	target: autoDraw = True
+35.6383 	EXP 	Flanker: autoDraw = False
+36.1540 	EXP 	Flanker: autoDraw = False
+36.1540 	EXP 	target: autoDraw = False
+36.1540 	EXP 	affectiveWords: text = '甘甜'
+36.1540 	EXP 	affectiveWords: autoDraw = True
+36.1612 	DATA 	Keypress: a
+36.7248 	EXP 	New trial (rep=0, index=14): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+36.8544 	DATA 	Keypress: a
+36.8645 	EXP 	affectiveWords: autoDraw = False
+36.8645 	EXP 	Flanker: image = 'pics/flanker5.png'
+36.8645 	EXP 	target: image = 'pics/flanker1.png'
+36.8645 	EXP 	Flanker: autoDraw = True
+37.0582 	EXP 	target: autoDraw = True
+37.0721 	EXP 	Flanker: autoDraw = False
+37.3873 	DATA 	Keypress: l
+37.3901 	EXP 	Flanker: autoDraw = False
+37.3901 	EXP 	target: autoDraw = False
+37.3901 	EXP 	affectiveWords: text = '假装'
+37.3901 	EXP 	affectiveWords: autoDraw = True
+38.4760 	EXP 	New trial (rep=0, index=15): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+38.6233 	EXP 	affectiveWords: autoDraw = False
+38.6233 	EXP 	Flanker: image = 'pics/flanker5.png'
+38.6233 	EXP 	target: image = 'pics/flanker1.png'
+38.6233 	EXP 	Flanker: autoDraw = True
+38.6257 	DATA 	Keypress: l
+38.8082 	EXP 	target: autoDraw = True
+38.8220 	EXP 	Flanker: autoDraw = False
+39.1892 	DATA 	Keypress: l
+39.1929 	EXP 	Flanker: autoDraw = False
+39.1929 	EXP 	target: autoDraw = False
+39.1929 	EXP 	affectiveWords: text = '固执'
+39.1929 	EXP 	affectiveWords: autoDraw = True
+41.1425 	EXP 	New trial (rep=0, index=16): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+41.2782 	EXP 	affectiveWords: autoDraw = False
+41.2782 	EXP 	Flanker: image = 'pics/flanker5.png'
+41.2782 	EXP 	target: image = 'pics/flanker3.png'
+41.2782 	EXP 	Flanker: autoDraw = True
+41.2803 	DATA 	Keypress: l
+41.4749 	EXP 	target: autoDraw = True
+41.4888 	EXP 	Flanker: autoDraw = False
+41.8729 	EXP 	Flanker: autoDraw = False
+41.8729 	EXP 	target: autoDraw = False
+41.8729 	EXP 	affectiveWords: text = '怀疑'
+41.8729 	EXP 	affectiveWords: autoDraw = True
+41.8801 	DATA 	Keypress: a
+42.9421 	EXP 	New trial (rep=0, index=17): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+43.0718 	EXP 	affectiveWords: autoDraw = False
+43.0718 	EXP 	Flanker: image = 'pics/flanker6.png'
+43.0718 	EXP 	target: image = 'pics/flanker4.png'
+43.0718 	EXP 	Flanker: autoDraw = True
+43.0748 	DATA 	Keypress: a
+43.2582 	EXP 	target: autoDraw = True
+43.2720 	EXP 	Flanker: autoDraw = False
+43.8097 	EXP 	Flanker: autoDraw = False
+43.8097 	EXP 	target: autoDraw = False
+43.8097 	EXP 	affectiveWords: text = '废话'
+43.8097 	EXP 	affectiveWords: autoDraw = True
+43.8169 	DATA 	Keypress: l
+44.9420 	EXP 	New trial (rep=0, index=18): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+45.0685 	EXP 	affectiveWords: autoDraw = False
+45.0685 	EXP 	Flanker: image = 'pics/flanker5.png'
+45.0685 	EXP 	target: image = 'pics/flanker1.png'
+45.0685 	EXP 	Flanker: autoDraw = True
+45.0711 	DATA 	Keypress: a
+45.2583 	EXP 	target: autoDraw = True
+45.2721 	EXP 	Flanker: autoDraw = False
+45.7384 	EXP 	Flanker: autoDraw = False
+45.7384 	EXP 	target: autoDraw = False
+45.7384 	EXP 	affectiveWords: text = '慌忙'
+45.7384 	EXP 	affectiveWords: autoDraw = True
+45.7451 	DATA 	Keypress: l
+47.5101 	EXP 	New trial (rep=0, index=19): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+47.6684 	EXP 	affectiveWords: autoDraw = False
+47.6684 	EXP 	Flanker: image = 'pics/flanker5.png'
+47.6684 	EXP 	target: image = 'pics/flanker1.png'
+47.6684 	EXP 	Flanker: autoDraw = True
+47.6715 	DATA 	Keypress: l
+47.8416 	EXP 	target: autoDraw = True
+47.8721 	EXP 	Flanker: autoDraw = False
+48.1575 	DATA 	Keypress: l
+48.1609 	EXP 	Flanker: autoDraw = False
+48.1609 	EXP 	target: autoDraw = False
+48.1609 	EXP 	affectiveWords: text = '孤独'
+48.1609 	EXP 	affectiveWords: autoDraw = True
+48.9415 	EXP 	New trial (rep=0, index=20): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+49.0681 	EXP 	affectiveWords: autoDraw = False
+49.0681 	EXP 	Flanker: image = 'pics/flanker6.png'
+49.0681 	EXP 	target: image = 'pics/flanker2.png'
+49.0681 	EXP 	Flanker: autoDraw = True
+49.0702 	DATA 	Keypress: l
+49.2585 	EXP 	target: autoDraw = True
+49.2722 	EXP 	Flanker: autoDraw = False
+49.6145 	DATA 	Keypress: a
+49.6178 	EXP 	Flanker: autoDraw = False
+49.6178 	EXP 	target: autoDraw = False
+49.6178 	EXP 	affectiveWords: text = '呻吟'
+49.6178 	EXP 	affectiveWords: autoDraw = True
+50.4439 	EXP 	New trial (rep=0, index=21): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+50.5921 	EXP 	affectiveWords: autoDraw = False
+50.5921 	EXP 	Flanker: image = 'pics/flanker6.png'
+50.5921 	EXP 	target: image = 'pics/flanker2.png'
+50.5921 	EXP 	Flanker: autoDraw = True
+50.5940 	DATA 	Keypress: l
+50.7750 	EXP 	target: autoDraw = True
+50.7889 	EXP 	Flanker: autoDraw = False
+51.7560 	EXP 	Flanker: autoDraw = False
+51.7560 	EXP 	target: autoDraw = False
+51.7560 	EXP 	affectiveWords: text = '胡涂'
+51.7560 	EXP 	affectiveWords: autoDraw = True
+51.7622 	DATA 	Keypress: a
+52.8428 	EXP 	New trial (rep=0, index=22): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+52.9793 	EXP 	affectiveWords: autoDraw = False
+52.9793 	EXP 	Flanker: image = 'pics/flanker6.png'
+52.9793 	EXP 	target: image = 'pics/flanker2.png'
+52.9793 	EXP 	Flanker: autoDraw = True
+52.9817 	DATA 	Keypress: l
+53.1749 	EXP 	target: autoDraw = True
+53.1887 	EXP 	Flanker: autoDraw = False
+53.8070 	EXP 	Flanker: autoDraw = False
+53.8070 	EXP 	target: autoDraw = False
+53.8070 	EXP 	affectiveWords: text = '高贵'
+53.8070 	EXP 	affectiveWords: autoDraw = True
+53.8146 	DATA 	Keypress: a
+54.8926 	EXP 	New trial (rep=0, index=23): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+55.0180 	EXP 	affectiveWords: autoDraw = False
+55.0180 	EXP 	Flanker: image = 'pics/flanker6.png'
+55.0180 	EXP 	target: image = 'pics/flanker2.png'
+55.0180 	EXP 	Flanker: autoDraw = True
+55.0204 	DATA 	Keypress: a
+55.2083 	EXP 	target: autoDraw = True
+55.2221 	EXP 	Flanker: autoDraw = False
+55.5601 	EXP 	Flanker: autoDraw = False
+55.5601 	EXP 	target: autoDraw = False
+55.5601 	EXP 	affectiveWords: text = '差别'
+55.5601 	EXP 	affectiveWords: autoDraw = True
+55.5674 	DATA 	Keypress: a
+57.5591 	EXP 	New trial (rep=0, index=24): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+57.7130 	EXP 	affectiveWords: autoDraw = False
+57.7130 	EXP 	affectiveWords: autoDraw = False
+57.7130 	EXP 	Flanker: image = 'pics/flanker6.png'
+57.7130 	EXP 	target: image = 'pics/flanker4.png'
+57.7130 	EXP 	Flanker: autoDraw = True
+57.9084 	EXP 	target: autoDraw = True
+57.9222 	EXP 	Flanker: autoDraw = False
+58.4096 	DATA 	Keypress: l
+58.4170 	EXP 	Flanker: autoDraw = False
+58.4170 	EXP 	target: autoDraw = False
+58.4170 	EXP 	affectiveWords: text = '丢脸'
+58.4170 	EXP 	affectiveWords: autoDraw = True
+59.1754 	EXP 	New trial (rep=0, index=25): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+59.3048 	EXP 	affectiveWords: autoDraw = False
+59.3048 	EXP 	Flanker: image = 'pics/flanker6.png'
+59.3048 	EXP 	target: image = 'pics/flanker4.png'
+59.3048 	EXP 	Flanker: autoDraw = True
+59.3069 	DATA 	Keypress: a
+59.4918 	EXP 	target: autoDraw = True
+59.5055 	EXP 	Flanker: autoDraw = False
+60.0561 	EXP 	Flanker: autoDraw = False
+60.0561 	EXP 	target: autoDraw = False
+60.0561 	EXP 	affectiveWords: text = '鲜明'
+60.0561 	EXP 	affectiveWords: autoDraw = True
+60.0675 	DATA 	Keypress: l
+60.7097 	EXP 	New trial (rep=0, index=26): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+60.8445 	DATA 	Keypress: a
+60.8549 	EXP 	affectiveWords: autoDraw = False
+60.8549 	EXP 	Flanker: image = 'pics/flanker6.png'
+60.8549 	EXP 	target: image = 'pics/flanker4.png'
+60.8549 	EXP 	Flanker: autoDraw = True
+61.0416 	EXP 	target: autoDraw = True
+61.0552 	EXP 	Flanker: autoDraw = False
+61.5094 	EXP 	Flanker: autoDraw = False
+61.5094 	EXP 	target: autoDraw = False
+61.5094 	EXP 	affectiveWords: text = '忧虑'
+61.5094 	EXP 	affectiveWords: autoDraw = True
+61.5160 	DATA 	Keypress: l
+62.8754 	EXP 	New trial (rep=0, index=27): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+63.0039 	EXP 	affectiveWords: autoDraw = False
+63.0039 	EXP 	Flanker: image = 'pics/flanker5.png'
+63.0039 	EXP 	target: image = 'pics/flanker3.png'
+63.0039 	EXP 	Flanker: autoDraw = True
+63.0063 	DATA 	Keypress: l
+63.1917 	EXP 	target: autoDraw = True
+63.2056 	EXP 	Flanker: autoDraw = False
+63.6228 	EXP 	Flanker: autoDraw = False
+63.6228 	EXP 	target: autoDraw = False
+63.6228 	EXP 	affectiveWords: text = '宴会'
+63.6228 	EXP 	affectiveWords: autoDraw = True
+63.6312 	DATA 	Keypress: a
+65.1764 	EXP 	New trial (rep=0, index=28): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+65.3080 	DATA 	Keypress: a
+65.3179 	EXP 	affectiveWords: autoDraw = False
+65.3179 	EXP 	Flanker: image = 'pics/flanker5.png'
+65.3179 	EXP 	target: image = 'pics/flanker1.png'
+65.3179 	EXP 	Flanker: autoDraw = True
+65.5081 	EXP 	target: autoDraw = True
+65.5223 	EXP 	Flanker: autoDraw = False
+65.8407 	EXP 	Flanker: autoDraw = False
+65.8407 	EXP 	target: autoDraw = False
+65.8407 	EXP 	affectiveWords: text = '风光'
+65.8407 	EXP 	affectiveWords: autoDraw = True
+65.8470 	DATA 	Keypress: l
+67.2754 	EXP 	New trial (rep=0, index=29): {'congruency': 0, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+67.4138 	EXP 	affectiveWords: autoDraw = False
+67.4138 	EXP 	Flanker: image = 'pics/flanker6.png'
+67.4138 	EXP 	target: image = 'pics/flanker2.png'
+67.4138 	EXP 	Flanker: autoDraw = True
+67.4166 	DATA 	Keypress: a
+67.6084 	EXP 	target: autoDraw = True
+67.6225 	EXP 	Flanker: autoDraw = False
+67.9569 	EXP 	Flanker: autoDraw = False
+67.9569 	EXP 	target: autoDraw = False
+67.9569 	EXP 	affectiveWords: text = '闲话'
+67.9569 	EXP 	affectiveWords: autoDraw = True
+67.9626 	DATA 	Keypress: a
+68.9587 	EXP 	New trial (rep=0, index=30): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+69.0880 	EXP 	affectiveWords: autoDraw = False
+69.0880 	EXP 	Flanker: image = 'pics/flanker5.png'
+69.0880 	EXP 	target: image = 'pics/flanker1.png'
+69.0880 	EXP 	Flanker: autoDraw = True
+69.0899 	DATA 	Keypress: l
+69.2750 	EXP 	target: autoDraw = True
+69.2888 	EXP 	Flanker: autoDraw = False
+69.5882 	EXP 	Flanker: autoDraw = False
+69.5882 	EXP 	target: autoDraw = False
+69.5882 	EXP 	affectiveWords: text = '佳丽'
+69.5882 	EXP 	affectiveWords: autoDraw = True
+69.5935 	DATA 	Keypress: l
+70.3916 	EXP 	New trial (rep=0, index=31): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+70.5223 	EXP 	affectiveWords: autoDraw = False
+70.5223 	EXP 	Flanker: image = 'pics/flanker6.png'
+70.5223 	EXP 	target: image = 'pics/flanker2.png'
+70.5223 	EXP 	Flanker: autoDraw = True
+70.5244 	DATA 	Keypress: a
+70.7083 	EXP 	target: autoDraw = True
+70.7221 	EXP 	Flanker: autoDraw = False
+71.0540 	EXP 	Flanker: autoDraw = False
+71.0540 	EXP 	target: autoDraw = False
+71.0540 	EXP 	affectiveWords: text = '真理'
+71.0540 	EXP 	affectiveWords: autoDraw = True
+71.0647 	DATA 	Keypress: a
+72.0272 	EXP 	New trial (rep=0, index=32): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+72.1879 	EXP 	affectiveWords: autoDraw = False
+72.1879 	EXP 	Flanker: image = 'pics/flanker5.png'
+72.1879 	EXP 	target: image = 'pics/flanker3.png'
+72.1879 	EXP 	Flanker: autoDraw = True
+72.1909 	DATA 	Keypress: a
+72.3750 	EXP 	target: autoDraw = True
+72.3884 	EXP 	Flanker: autoDraw = False
+72.8235 	EXP 	Flanker: autoDraw = False
+72.8235 	EXP 	target: autoDraw = False
+72.8235 	EXP 	affectiveWords: text = '海洋'
+72.8235 	EXP 	affectiveWords: autoDraw = True
+72.8316 	DATA 	Keypress: a
+74.0284 	EXP 	New trial (rep=0, index=33): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'l'}
+74.1962 	EXP 	affectiveWords: autoDraw = False
+74.1962 	EXP 	Flanker: image = 'pics/flanker6.png'
+74.1962 	EXP 	target: image = 'pics/flanker4.png'
+74.1962 	EXP 	Flanker: autoDraw = True
+74.1991 	DATA 	Keypress: a
+74.3917 	EXP 	target: autoDraw = True
+74.4056 	EXP 	Flanker: autoDraw = False
+74.6711 	EXP 	Flanker: autoDraw = False
+74.6711 	EXP 	target: autoDraw = False
+74.6711 	EXP 	affectiveWords: text = '伤害'
+74.6711 	EXP 	affectiveWords: autoDraw = True
+74.6775 	DATA 	Keypress: a
+76.6576 	EXP 	New trial (rep=0, index=34): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker1.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+76.8094 	EXP 	affectiveWords: autoDraw = False
+76.8094 	EXP 	affectiveWords: autoDraw = False
+76.8094 	EXP 	Flanker: image = 'pics/flanker5.png'
+76.8094 	EXP 	target: image = 'pics/flanker1.png'
+76.8094 	EXP 	Flanker: autoDraw = True
+77.0071 	EXP 	target: autoDraw = True
+77.0215 	EXP 	Flanker: autoDraw = False
+77.5731 	EXP 	Flanker: autoDraw = False
+77.5731 	EXP 	target: autoDraw = False
+77.5731 	EXP 	affectiveWords: text = '聘请'
+77.5731 	EXP 	affectiveWords: autoDraw = True
+77.5787 	DATA 	Keypress: l
+78.3578 	EXP 	New trial (rep=0, index=35): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+78.4760 	DATA 	Keypress: a
+78.4859 	EXP 	affectiveWords: autoDraw = False
+78.4859 	EXP 	Flanker: image = 'pics/flanker6.png'
+78.4859 	EXP 	target: image = 'pics/flanker4.png'
+78.4859 	EXP 	Flanker: autoDraw = True
+78.6752 	EXP 	target: autoDraw = True
+78.6885 	EXP 	Flanker: autoDraw = False
+79.1378 	DATA 	Keypress: l
+79.1412 	EXP 	Flanker: autoDraw = False
+79.1412 	EXP 	target: autoDraw = False
+79.1412 	EXP 	affectiveWords: text = '娴熟'
+79.1412 	EXP 	affectiveWords: autoDraw = True
+80.0593 	EXP 	New trial (rep=0, index=36): {'congruency': 1, 'AffValue': 0, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'l'}
+80.2015 	EXP 	affectiveWords: autoDraw = False
+80.2015 	EXP 	Flanker: image = 'pics/flanker5.png'
+80.2015 	EXP 	target: image = 'pics/flanker3.png'
+80.2015 	EXP 	Flanker: autoDraw = True
+80.2039 	DATA 	Keypress: a
+80.3751 	EXP 	target: autoDraw = True
+80.4056 	EXP 	Flanker: autoDraw = False
+80.8578 	EXP 	Flanker: autoDraw = False
+80.8578 	EXP 	target: autoDraw = False
+80.8578 	EXP 	affectiveWords: text = '自卑'
+80.8578 	EXP 	affectiveWords: autoDraw = True
+80.8652 	DATA 	Keypress: a
+82.0578 	EXP 	New trial (rep=0, index=37): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker5.png', 'targetPic': 'pics/flanker3.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+82.1733 	DATA 	Keypress: l
+82.1823 	EXP 	affectiveWords: autoDraw = False
+82.1823 	EXP 	Flanker: image = 'pics/flanker5.png'
+82.1823 	EXP 	target: image = 'pics/flanker3.png'
+82.1823 	EXP 	Flanker: autoDraw = True
+82.3571 	EXP 	target: autoDraw = True
+82.3882 	EXP 	Flanker: autoDraw = False
+82.7744 	EXP 	Flanker: autoDraw = False
+82.7744 	EXP 	target: autoDraw = False
+82.7744 	EXP 	affectiveWords: text = '充沛'
+82.7744 	EXP 	affectiveWords: autoDraw = True
+82.7800 	DATA 	Keypress: a
+84.0096 	EXP 	New trial (rep=0, index=38): {'congruency': 0, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker2.png', 'corAnsF': 'a', 'corAnsA': 'a'}
+84.1309 	DATA 	Keypress: a
+84.1391 	EXP 	affectiveWords: autoDraw = False
+84.1391 	EXP 	Flanker: image = 'pics/flanker6.png'
+84.1391 	EXP 	target: image = 'pics/flanker2.png'
+84.1391 	EXP 	Flanker: autoDraw = True
+84.3233 	EXP 	target: autoDraw = True
+84.3380 	EXP 	Flanker: autoDraw = False
+84.6295 	EXP 	Flanker: autoDraw = False
+84.6295 	EXP 	target: autoDraw = False
+84.6295 	EXP 	affectiveWords: text = '崇尚'
+84.6295 	EXP 	affectiveWords: autoDraw = True
+84.6371 	DATA 	Keypress: a
+85.4597 	EXP 	New trial (rep=0, index=39): {'congruency': 1, 'AffValue': 1, 'flankerPic': 'pics/flanker6.png', 'targetPic': 'pics/flanker4.png', 'corAnsF': 'l', 'corAnsA': 'a'}
+85.6102 	DATA 	Keypress: a
+85.6198 	EXP 	affectiveWords: autoDraw = False
+85.6198 	EXP 	Flanker: image = 'pics/flanker6.png'
+85.6198 	EXP 	target: image = 'pics/flanker4.png'
+85.6198 	EXP 	Flanker: autoDraw = True
+85.8075 	EXP 	target: autoDraw = True
+85.8217 	EXP 	Flanker: autoDraw = False
+86.3376 	DATA 	Keypress: l
+86.3400 	EXP 	Flanker: autoDraw = False
+86.3400 	EXP 	target: autoDraw = False
+86.3400 	EXP 	affectiveWords: text = '增收'
+86.3400 	EXP 	affectiveWords: autoDraw = True
+87.3007 	DATA 	Keypress: a
+87.3044 	EXP 	affectiveWords: autoDraw = False
+87.3044 	EXP 	text_2: autoDraw = True
+88.4761 	DATA 	Keypress: space
+88.4872 	EXP 	text_2: autoDraw = False
+89.5956 	EXP 	window1: mouseVisible = True
