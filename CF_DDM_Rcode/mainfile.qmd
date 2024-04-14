@@ -1,6 +1,30 @@
+---
+title: "main_file"
+author: "Liu"
+format: html
+editor: visual
+---
+
+# 毕业论文结果
+
+数据分析系统环境：
+
+```{r warning=FALSE}
+devtools::session_info()
+```
+
+```{r include=FALSE}
+#| echo: false
+# 加载原始数据和初步分析用表
 source("Num2word.R")
 source("AFF.R")
+```
 
+## 1 离群值检测
+
+```{r include=FALSE}
+#| echo: false
+# 离群值检测
 filled_outers1 <- lapply(outers1, function(df) {
   n_missing_rows <- 10 - nrow(df)
   if (n_missing_rows > 0) {
@@ -26,27 +50,64 @@ filled_outers2 <- bind_cols(filled_outers2)
 colnames(filled_outers2) <- names(outers2)
 
 outers <- cbind(filled_outers1, filled_outers2)
+```
 
+```{r warning=FALSE}
+#| echo: false
 sums <- colSums(outers)
 non_zero_cols <- names(outers)[sums != 0]
-outers <- outers[, non_zero_cols, drop = FALSE]
+outers[, non_zero_cols, drop = FALSE]
+OUTERS <- c()
+```
 
+```{r include=FALSE}
+# 加载预分析用数据
 AFF_long_Sim <- filter(AFF_long, !(SubIndex %in% OUTERS))
 
 SimpleTest.frame <- merge(CF_wide, AFF_wide, by = 'SubIndex') %>%
   filter(!(SubIndex %in% OUTERS)) %>% 
   select(-c(RT.Trans, RT.Repeat, ACC.Trans, ACC.Repeat))
+```
 
+## 2 认知灵活性与冲突积极性、非冲突情绪的相关
+
+### 1.1 描述统计
+
+图1：冲突积极性直方图
+
+```{r}
 hist(SimpleTest.frame$Conflict_pos)
+```
+
+图2：非冲突情绪直方图
+
+```{r}
 hist(SimpleTest.frame$Conflict_neg)
+```
 
+图3：认知灵活性直方图
+
+```{r}
+hist(SimpleTest.frame$switch_cost)
+```
+
+### 1.2 转换代价与冲突积极性的相关
+
+```{r}
 plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
-plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
-
 cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
-cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
+```
 
-# 假设1：转换代价与情绪词判断-简单反应时正相关
+### 1.3 转换代价与一致条件情绪效应的相关
+
+```{r}
+plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
+cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
+```
+
+## 3 假设1：转换代价越高，情绪词判断越慢
+
+```{r include=FALSE}
 Hypo_1 <- AFF_long_Sim %>% 
   filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>% 
   group_by(SubIndex) %>% 
@@ -62,11 +123,29 @@ Hypo_1 <- AFF_long_Sim %>%
   cbind(SimpleTest.frame$switch_cost) %>% 
   mutate(RT.pos = pos - SimpleTest.frame$RT.prime_Co, RT.neg = neg - SimpleTest.frame$RT.prime_Co) %>% 
   merge(Hypo_1, by = c('SubIndex', 'SimpleTest.frame$switch_cost'), all.x = TRUE)
+```
 
+### 3.1 转换代价与整体反应时的相关
+
+```{r}
 cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.G)
-cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.pos)
-cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
+```
 
+### 3.2 转换代价与积极词反应时的相关
+
+```{r}
+cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.pos)
+```
+
+### 3.3 转换代价与消极词反应时的相关
+
+```{r}
+cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
+```
+
+## 4 情绪反转效应检验
+
+```{r include=FALSE}
 library(bruceR)
 # 分析基础数据
 AFF_long_Sim %>% 
@@ -78,7 +157,19 @@ AFF_long_Sim %>%
 
 RESULT <- AFF_long_Sim %>% 
   filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
-  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt')
-EMMEANS(RESULT, "AffValue", by = "congruency")
+  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt') %>% 
+  EMMEANS("AffValue", by = "congruency")
+```
 
+### 4.1 方差分析结果
 
+```{r message=TRUE, warning=FALSE}
+RESULT$anova_table
+```
+
+### 4.2 简单效应分析结果
+
+```{r message=TRUE, warning=FALSE}
+SimpleEffect <- EMMEANS(RESULT, "AffValue", by = "congruency")
+
+```
