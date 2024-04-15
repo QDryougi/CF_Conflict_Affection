@@ -125,7 +125,7 @@ Hypo_1 <- AFF_long_Sim %>%
   merge(Hypo_1, by = c('SubIndex', 'SimpleTest.frame$switch_cost'), all.x = TRUE)
 ```
 
-### 3.1 转换代价与整体反应时的相关
+### 3.1 转换代价与整体情绪词反应时的相关
 
 ```{r}
 cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.G)
@@ -171,5 +171,4 @@ RESULT$anova_table
 
 ```{r message=TRUE, warning=FALSE}
 SimpleEffect <- EMMEANS(RESULT, "AffValue", by = "congruency")
-
 ```

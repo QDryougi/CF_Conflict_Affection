@@ -101,32 +101,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-</section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<p>You can add options to executable code like this</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
-</section>
 <section id="毕业论文结果" class="level1">
 <h1>毕业论文结果</h1>
 <p>数据分析系统环境：</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
@@ -241,14 +220,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="描述统计" class="level3">
 <h3 class="anchored" data-anchor-id="描述统计">1.1 描述统计</h3>
 <p>图1：冲突积极性直方图</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(SimpleTest.frame<span class="sc">$</span>Conflict_pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mainfile_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <p>图2：非冲突情绪直方图</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(SimpleTest.frame<span class="sc">$</span>Conflict_neg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mainfile_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <p>图3：认知灵活性直方图</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(SimpleTest.frame<span class="sc">$</span>switch_cost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mainfile_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="转换代价与冲突积极性的相关" class="level3">
 <h3 class="anchored" data-anchor-id="转换代价与冲突积极性的相关">1.2 转换代价与冲突积极性的相关</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(SimpleTest.frame<span class="sc">$</span>switch_cost, SimpleTest.frame<span class="sc">$</span>Conflict_pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mainfile_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(SimpleTest.frame<span class="sc">$</span>switch_cost, SimpleTest.frame<span class="sc">$</span>Conflict_pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  SimpleTest.frame$switch_cost and SimpleTest.frame$Conflict_pos
+t = 1.0008, df = 26, p-value = 0.3262
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.194452  0.527753
+sample estimates:
+     cor 
+0.192597 </code></pre>
+</div>
+</div>
 </section>
 <section id="转换代价与一致条件情绪效应的相关" class="level3">
 <h3 class="anchored" data-anchor-id="转换代价与一致条件情绪效应的相关">1.3 转换代价与一致条件情绪效应的相关</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(SimpleTest.frame<span class="sc">$</span>switch_cost, SimpleTest.frame<span class="sc">$</span>Conflict_neg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mainfile_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(SimpleTest.frame<span class="sc">$</span>switch_cost, SimpleTest.frame<span class="sc">$</span>Conflict_neg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  SimpleTest.frame$switch_cost and SimpleTest.frame$Conflict_neg
+t = 0.41999, df = 26, p-value = 0.6779
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.3001807  0.4416409
+sample estimates:
+      cor 
+0.0820895 </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="假设1转换代价越高情绪词判断越慢" class="level2">
@@ -256,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="转换代价与整体反应时的相关" class="level3">
 <h3 class="anchored" data-anchor-id="转换代价与整体反应时的相关">3.1 转换代价与整体反应时的相关</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -275,7 +312,7 @@ sample estimates:
 <section id="转换代价与积极词反应时的相关" class="level3">
 <h3 class="anchored" data-anchor-id="转换代价与积极词反应时的相关">3.2 转换代价与积极词反应时的相关</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -294,7 +331,7 @@ sample estimates:
 <section id="转换代价与消极词反应时的相关" class="level3">
 <h3 class="anchored" data-anchor-id="转换代价与消极词反应时的相关">3.3 转换代价与消极词反应时的相关</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.neg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(Hypo_1<span class="sc">$</span><span class="st">`</span><span class="at">SimpleTest.frame$switch_cost</span><span class="st">`</span>, Hypo_1<span class="sc">$</span>RT.neg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -316,7 +353,7 @@ sample estimates:
 <section id="方差分析结果" class="level3">
 <h3 class="anchored" data-anchor-id="方差分析结果">4.1 方差分析结果</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>RESULT<span class="sc">$</span>anova_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>RESULT<span class="sc">$</span>anova_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Anova Table (Type III tests)
 
@@ -333,7 +370,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="简单效应分析结果" class="level3">
 <h3 class="anchored" data-anchor-id="简单效应分析结果">4.2 简单效应分析结果</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>SimpleEffect <span class="ot">&lt;-</span> <span class="fu">EMMEANS</span>(RESULT, <span class="st">"AffValue"</span>, <span class="at">by =</span> <span class="st">"congruency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>SimpleEffect <span class="ot">&lt;-</span> <span class="fu">EMMEANS</span>(RESULT, <span class="st">"AffValue"</span>, <span class="at">by =</span> <span class="st">"congruency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>------ EMMEANS (effect = "AffValue") ------
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on April 15, 2024, at 14:10
+    on April 15, 2024, at 14:09
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -28,6 +28,9 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
+myMouse.setVisible(0)
+myMouse.setVisible(0)
+myMouse.setVisible(0)
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -51,7 +54,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['姓名'], expName, e
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\Ryougi mana\\Desktop\\CF_DDM\\expriment\\main\\mian_lastrun.py',
+    originPath='C:\\Users\\Ryougi mana\\Desktop\\CF_DDM\\expriment\\main\\mian.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
