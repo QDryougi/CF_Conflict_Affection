@@ -16,4 +16,4 @@ df <- mergePy(PATH = dir, COLNAMES = cols, FILTERS = filters) %>%
   mutate(respAffWord.rt = respAffWord.rt*1000)
 colnames(df)[1:4] <- c("name","sex","age","transType")
 Numsub <- length(df$name)/480
-df$SubIndex <- rep(1:Numsub, each = 480)
+df$SubIndex <- rep(0:(Numsub - 1), each = 480)

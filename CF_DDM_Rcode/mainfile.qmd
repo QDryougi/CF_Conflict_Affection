@@ -9,7 +9,12 @@ editor: visual
 
 数据分析系统环境：
 
-```{r warning=FALSE}
+```{r}
+library(plyr)
+library(data.table)
+library(tidyverse)
+library(bruceR)
+
 devtools::session_info()
 ```
 
@@ -145,7 +150,7 @@ cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
 
 ## 4 情绪反转效应检验
 
-```{r include=FALSE}
+```{r}
 library(bruceR)
 # 分析基础数据
 AFF_long_Sim %>% 
@@ -161,7 +166,27 @@ RESULT <- AFF_long_Sim %>%
   EMMEANS("AffValue", by = "congruency")
 ```
 
-### 4.1 方差分析结果
+### 4.1 方差分析
+
+#### 描述统计
+
+```{r}
+AFF_merge <- AFF_long %>%
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop")
+
+AFF_summary <- AFF_long %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop") %>% 
+  summarySE(measurevar= 'rt', groupvars=c("congruency","AffValue"), na.rm = TRUE) %>% 
+  mutate(rt = round(rt,4)) %>% 
+  mutate(sd = round(sd,4)) %>% 
+  mutate(se = round(se,4)) %>% 
+  mutate(ci = round(ci,4))
+AFF_summary
+```
+
+#### 两因素方差分析
 
 ```{r message=TRUE, warning=FALSE}
 RESULT$anova_table
@@ -172,3 +197,68 @@ RESULT$anova_table
 ```{r message=TRUE, warning=FALSE}
 SimpleEffect <- EMMEANS(RESULT, "AffValue", by = "congruency")
 ```
+
+### 4.3 图
+
+```{r}
+ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
+  geom_split_violin(trim = FALSE, color = "white") +
+  geom_point(data = AFF_summary, aes(x = congruency, y = rt, fill = AffValue),
+             pch=19, position=position_dodge(0.35), size=1.5)+ #绘制均值为点图
+  geom_errorbar(data = AFF_summary,
+                aes(ymin = rt-ci, ymax=rt+ci), #误差条表示95%的置信区间
+                width=0.1, #误差条末端短横线的宽度
+                position=position_dodge(0.35),
+                color="black",
+                alpha = 0.7,
+                size=0.5) +
+  scale_fill_manual(values = c("#56B4E9", "#E69F00"))+ #设置填充的颜色
+  theme_bw()+ #背景变为白色
+  labs(x = "Congruency", y = "Reaction Time", title = "Plot of Reaction Time by Congruency and AffValue")
+```
+
+## 5 序列效应
+
+### 5.1 block拆分并汇总
+
+```{r}
+#| echo: false
+# 分block计算冲突积极性
+df.block <- data.frame()
+for (i in c(0:3)) {
+  df.block <- rbind(df.block, split_block(i))
+}
+df.block
+```
+
+### 5.2 汇总block数据
+
+```{r}
+df.block %>% 
+  group_by(SubIndex, block) %>% 
+  dplyr::summarise(con_pos = mean(con_pos), ic_pos = mean(ic_pos)) %>% 
+  MANOVA(subID = "SubIndex", within = "block", dv = "con_pos")
+```
+
+```{r}
+df.block %>% 
+  group_by(block) %>% 
+  dplyr::summarise(con_pos = mean(con_pos), ic_pos = mean(ic_pos)) %>% 
+  ggplot() +
+  geom_line(aes(x = block, y = con_pos), color = "blue") +
+  geom_line(aes(x = block, y = ic_pos), color = "red")
+```
+
+```{r}
+df.block %>%
+  filter(block == 1) %>% 
+  group_by(SubIndex) %>% 
+  dplyr::summarise(con_pos = mean(con_pos)) -> test
+hist(test$con_pos)
+```
+
+## 待完成事项
+
+1.  检验跨block效应并绘图(需要优化加工，加上散点、误差棒)、
+2.  对block2的单被试数据进行检验，查找异常值(可能是因为block2的指导语原因)
+3.  导出HDDM建模用数据（准入标准：prime正确、RT = m ± 1.96sd）

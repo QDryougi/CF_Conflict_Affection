@@ -12,8 +12,8 @@ colnames(CF_long)[3] = 'Accuracy'
 CF_long %>% 
   filter(respNum2word.corr == 1) %>%  #删除错误试次
   group_by(SubIndex, transType) %>% 
-  filter(respNum2word.rt <= (mean(respNum2word.rt) + 2.5*sd(respNum2word.rt)),
-          respNum2word.rt >= (mean(respNum2word.rt) - 2.5*sd(respNum2word.rt))) %>% 
+  filter(respNum2word.rt <= (mean(respNum2word.rt) + 1.96*sd(respNum2word.rt)),
+          respNum2word.rt >= (mean(respNum2word.rt) - 1.96*sd(respNum2word.rt))) %>% 
   summarise(Accuracy = mean(Accuracy), Num2word.rt = mean(respNum2word.rt), .groups = "drop") %>%
   pivot_wider(names_from = transType,
               values_from = c(Num2word.rt,Accuracy)) -> CF_wide
