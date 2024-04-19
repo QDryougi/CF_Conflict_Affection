@@ -9,23 +9,28 @@ editor: visual
 
 数据分析系统环境：
 
-```{r}
+```{r warning=FALSE}
 library(plyr)
 library(data.table)
 library(tidyverse)
 library(bruceR)
 
-devtools::session_info()
+devtools::session_info(pkgs = "loaded")
 ```
 
 ```{r include=FALSE}
 #| echo: false
 # 加载原始数据和初步分析用表
-source("Num2word.R")
-source("AFF.R")
+source("script/functions.R")
+source("script/getRaw.R")
+
+source("script/Num2word.R")
+source("script/AFF.R")
 ```
 
 ## 1 离群值检测
+
+### 检测方法待完善！！！
 
 ```{r include=FALSE}
 #| echo: false
@@ -62,32 +67,31 @@ outers <- cbind(filled_outers1, filled_outers2)
 sums <- colSums(outers)
 non_zero_cols <- names(outers)[sums != 0]
 outers[, non_zero_cols, drop = FALSE]
-OUTERS <- c()
+OUTERS <- c(29)
 ```
 
-```{r include=FALSE}
+```{r}
 # 加载预分析用数据
 AFF_long_Sim <- filter(AFF_long, !(SubIndex %in% OUTERS))
 
 SimpleTest.frame <- merge(CF_wide, AFF_wide, by = 'SubIndex') %>%
   filter(!(SubIndex %in% OUTERS)) %>% 
   select(-c(RT.Trans, RT.Repeat, ACC.Trans, ACC.Repeat))
+SimpleTest.frame
 ```
 
-## 2 认知灵活性与冲突积极性、非冲突情绪的相关
+## 2 认知灵活性与冲突积极性、不一致启动强度的相关
 
 ### 1.1 描述统计
 
-图1：冲突积极性直方图
+图1：冲突积极性和不一致启动强度直方图
 
 ```{r}
 hist(SimpleTest.frame$Conflict_pos)
 ```
 
-图2：非冲突情绪直方图
-
 ```{r}
-hist(SimpleTest.frame$Conflict_neg)
+hist(SimpleTest.frame$Ic_prime_grade)
 ```
 
 图3：认知灵活性直方图
@@ -98,19 +102,27 @@ hist(SimpleTest.frame$switch_cost)
 
 ### 1.2 转换代价与冲突积极性的相关
 
+冲突积极启动强度（$RT_{消极}-RT_{积极}$），反映情绪反转效应的强度，如果为负则未发生反转，如果为正，则发生了。
+
+冲突的作用是激活消极情绪，从而干扰对积极情绪的反应。因此，当冲突被解决后，可以观察到对消极情绪的反应速度减缓
+
+#### 1.2.1 比较一致和不一致条件下的积极词RT
+
 ```{r}
 plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
 cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
 ```
 
-### 1.3 转换代价与一致条件情绪效应的相关
+#### 1.2.2 比较不一致条件下的不同情绪效价RT差异
 
 ```{r}
-plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
-cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_neg)
+plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Ic_prime_grade)
+cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Ic_prime_grade)
 ```
 
 ## 3 假设1：转换代价越高，情绪词判断越慢
+
+### 没有过滤离群值
 
 ```{r include=FALSE}
 Hypo_1 <- AFF_long_Sim %>% 
@@ -150,17 +162,9 @@ cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
 
 ## 4 情绪反转效应检验
 
-```{r}
-library(bruceR)
+```{r include=FALSE}
 # 分析基础数据
-AFF_long_Sim %>% 
-  filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>% 
-  group_by(SubIndex, congruency, AffValue) %>% 
-  summarise(RT = mean(respAffWord.rt)) %>% 
-  ggplot(aes(congruency, RT)) +
-  geom_boxplot(aes(colour =  as.factor(AffValue)))
-
-RESULT <- AFF_long_Sim %>% 
+RESULT <- AFF_long %>% 
   filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
   MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt') %>% 
   EMMEANS("AffValue", by = "congruency")
@@ -211,7 +215,7 @@ ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
                 position=position_dodge(0.35),
                 color="black",
                 alpha = 0.7,
-                size=0.5) +
+                linewidth=0.5) +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))+ #设置填充的颜色
   theme_bw()+ #背景变为白色
   labs(x = "Congruency", y = "Reaction Time", title = "Plot of Reaction Time by Congruency and AffValue")
@@ -223,42 +227,171 @@ ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
 
 ```{r}
 #| echo: false
-# 分block计算冲突积极性
 df.block <- data.frame()
 for (i in c(0:3)) {
   df.block <- rbind(df.block, split_block(i))
 }
+
+# 计算差值
+df.block %>%  
+  group_by(SubIndex, block, AffValue) %>%  
+  arrange(congruency) %>% 
+  summarise(diff_btw_Con = diff(RT.target), .groups = 'drop') %>% # Pos_Ic-Co
+  merge(df.block, by = c("SubIndex", "block", "AffValue"),all.x = TRUE) -> MID
+df.block %>%   
+  group_by(SubIndex, block, congruency) %>%
+  arrange(AffValue) %>% 
+  summarise(diff_btw_value = -diff(RT.target), .groups = 'drop') %>%
+  merge(MID, by = c("SubIndex", "block", "congruency"),all.x = TRUE) -> df.block
 df.block
 ```
 
-### 5.2 汇总block数据
+### 5.2 冲突积极性 *Co_pos - Ic_pos*
 
 ```{r}
+# 冲突解决启动的积极情绪会比一致启动强吗？(一致启动更慢)
 df.block %>% 
+  filter(AffValue == 'pos') %>% 
   group_by(SubIndex, block) %>% 
-  dplyr::summarise(con_pos = mean(con_pos), ic_pos = mean(ic_pos)) %>% 
+  dplyr::summarise(con_pos = mean(diff_btw_Con), .groups = 'drop') %>% 
   MANOVA(subID = "SubIndex", within = "block", dv = "con_pos")
 ```
 
+### 5.3 情绪反转强度 *Ic_neg - Ic_pos*
+
 ```{r}
+# 冲突解决产生的积极情绪效应强度会不会随时间变化？
 df.block %>% 
-  group_by(block) %>% 
-  dplyr::summarise(con_pos = mean(con_pos), ic_pos = mean(ic_pos)) %>% 
-  ggplot() +
-  geom_line(aes(x = block, y = con_pos), color = "blue") +
-  geom_line(aes(x = block, y = ic_pos), color = "red")
+  filter(congruency == 'Ic') %>% 
+  group_by(SubIndex, block) %>% 
+  dplyr::summarise(reverse_grade = mean(diff_btw_value), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = "block", dv = "reverse_grade")
 ```
+
+### 5.4 不同的情绪如何随block变化
 
 ```{r}
 df.block %>%
-  filter(block == 1) %>% 
-  group_by(SubIndex) %>% 
-  dplyr::summarise(con_pos = mean(con_pos)) -> test
-hist(test$con_pos)
+  group_by(SubIndex, block, AffValue) %>% 
+  dplyr::summarise(RT = mean(RT.target), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = c('AffValue',"block"), dv = "RT", sph.correction="GG")
+```
+
+冲突解决的积极情绪的相对强度随着时间增加逐渐减弱：
+
+要么是消极词变快了，要么是积极词变慢了
+
+如果是消极词变快了，
+
+可能性1，适应了冲突，从而导致冲突解决产生的积极情绪效价减弱
+
+可能性2：疲劳带来的情绪变化
+
+## 6 HDDM
+
+```{r include=FALSE}
+df.hddm <- AFF_long
+```
+
+### 思路1：直接导出2×2的表格进行两水平的分析
+
+```{r}
+df.m1 <- df.hddm %>% 
+  filter(respFlanker.corr == 1) %>%
+  filter(!(SubIndex %in% OUTERS)) %>% 
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, congruency, AffValue, response, rt) %>% 
+  filter(!is.na(rt))
+
+write.csv(df.m1, file = 'hddm/df.m1.csv', row.names = FALSE)
+```
+
+假设：
+
+转换代价影响t0
+
+效价和启动类型影响v、z
+
+### 思路2：导出4个Condition,，分别建模
+
+```{r}
+df.m2_Co_pos <- df.hddm %>% 
+  filter(respFlanker.corr == 1, congruency == "Co", AffValue == "pos") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m2_Co_pos, file = 'hddm/df.m2_Co_pos.csv', row.names = FALSE)
+
+df.m2_Co_neg <- df.hddm %>% 
+  filter(respFlanker.corr == 1, congruency == "Co", AffValue == "neg") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m2_Co_neg, file = 'hddm/df.m2_Co_neg.csv', row.names = FALSE)
+
+df.m2_Ic_pos <- df.hddm %>% 
+  filter(respFlanker.corr == 1, congruency == "Ic", AffValue == "pos") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m2_Ic_pos, file = 'hddm/df.m2_Ic_pos.csv', row.names = FALSE)
+
+df.m2_Ic_neg <- df.hddm %>% 
+  filter(respFlanker.corr == 1, congruency == "Ic", AffValue == "neg") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m2_Ic_neg, file = 'hddm/df.m2_Ic_neg.csv', row.names = FALSE)
+```
+
+### 思路3：按照单独导出作差的两种情况
+
+3.1 导出积极情绪组，比较co和ic
+
+```{r}
+df.m3_IcCo <- df.hddm %>% 
+  filter(respFlanker.corr == 1, AffValue == "pos") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, congruency, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m3_IcCo, file = 'hddm/df.m3_IcCo.csv', row.names = FALSE)
+```
+
+3.2 导出冲突条件，比较pos和neg
+
+```{r}
+df.m3_PosNeg <- df.hddm %>% 
+  filter(respFlanker.corr == 1, congruency == "Ic") %>%
+  mutate(response = respAffWord.corr) %>% 
+  mutate(subj_idx = SubIndex) %>% 
+  mutate(rt = respAffWord.rt/1000) %>% 
+  select(subj_idx, AffValue, response, rt) %>% 
+  filter(!is.na(rt))
+write.csv(df.m3_PosNeg, file = 'hddm/df.m3_PosNeg.csv', row.names = FALSE)
 ```
 
 ## 待完成事项
 
-1.  检验跨block效应并绘图(需要优化加工，加上散点、误差棒)、
-2.  对block2的单被试数据进行检验，查找异常值(可能是因为block2的指导语原因)
-3.  导出HDDM建模用数据（准入标准：prime正确、RT = m ± 1.96sd）
+1.  对各个数据绘制直方图，进行正态性检验
+2.  计算冲突效应大小（做相关）
+3.  检验跨block效应并绘图(需要优化加工，加上散点、误差棒)+目前计算的时积极启动效应(block拆分部分的数值计算有误)
+4.  宽表是经过过滤的，而长表没有
+5.  没有做传统的ACC数据分析
+
+## 奇怪的问题
+
+1.  积极启动效应（Ic_neg - Ic_pos）：反映积极启动的强度
+2.  冲突积极性（Conflict positivity Ic_pos - C_pos）：以一致条件为基线，比较不一致启动的效价
+3.  4和5分别代表了什么？
