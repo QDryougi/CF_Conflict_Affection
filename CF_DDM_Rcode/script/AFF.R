@@ -46,8 +46,6 @@ Aff_wide_target$Ic_prime_grade <- Aff_wide_target$RT.target_Ic_neg - Aff_wide_ta
 
 AFF_wide <- merge(Aff_wide_prime, Aff_wide_target, by = 'SubIndex')
 
-outers2 <- OuterDetectV(AFF_wide, SubIndex, c(14,15))
-
 
 
 

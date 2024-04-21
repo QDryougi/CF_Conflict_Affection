@@ -28,46 +28,23 @@ source("script/Num2word.R")
 source("script/AFF.R")
 ```
 
-## 1 离群值检测
+## 1 预处理
 
-### 检测方法待完善！！！
+检验被试原则：±2.5个标准差
 
-```{r include=FALSE}
+检验RT原则：依据subj_x / congruency / v alue / block分组筛选
+
+### 1.1 离群值检测
+
+```{r}
 #| echo: false
-# 离群值检测
-filled_outers1 <- lapply(outers1, function(df) {
-  n_missing_rows <- 10 - nrow(df)
-  if (n_missing_rows > 0) {
-    missing_rows <- data.frame(SubIndex = rep(0, n_missing_rows))
-    df <- rbind(df, missing_rows)
-  }
-  return(df)
-})
-
-filled_outers1 <- bind_cols(filled_outers1)
-colnames(filled_outers1) <- names(outers1)
-
-filled_outers2 <- lapply(outers2, function(df) {
-  n_missing_rows <- 10 - nrow(df)
-  if (n_missing_rows > 0) {
-    missing_rows <- data.frame(SubIndex = rep(0, n_missing_rows))
-    df <- rbind(df, missing_rows)
-  }
-  return(df)
-})
-
-filled_outers2 <- bind_cols(filled_outers2)
-colnames(filled_outers2) <- names(outers2)
-
-outers <- cbind(filled_outers1, filled_outers2)
+CF_wide %>% OuterDetectN(SubIndex, switch_cost)
+AFF_wide %>% OuterDetectN(SubIndex,  Ic_prime_grade, Conflict_pos)
 ```
 
 ```{r warning=FALSE}
 #| echo: false
-sums <- colSums(outers)
-non_zero_cols <- names(outers)[sums != 0]
-outers[, non_zero_cols, drop = FALSE]
-OUTERS <- c(29)
+OUTERS <- c(11,23,16,33)
 ```
 
 ```{r}
@@ -80,9 +57,23 @@ SimpleTest.frame <- merge(CF_wide, AFF_wide, by = 'SubIndex') %>%
 SimpleTest.frame
 ```
 
+### 1.2 性别年龄
+
+```{r}
+AFF_long %>% 
+  group_by(SubIndex) %>% 
+  dplyr::summarise(age = mean(age), sex = first(sex), .groups = "drop") -> test
+mean(test$age)
+sd(test$age)
+
+table(test$sex)
+```
+
 ## 2 认知灵活性与冲突积极性、不一致启动强度的相关
 
 ### 1.1 描述统计
+
+-   这里要改成P-P图
 
 图1：冲突积极性和不一致启动强度直方图
 
@@ -166,8 +157,7 @@ cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
 # 分析基础数据
 RESULT <- AFF_long %>% 
   filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
-  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt') %>% 
-  EMMEANS("AffValue", by = "congruency")
+  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt')
 ```
 
 ### 4.1 方差分析
@@ -196,13 +186,7 @@ AFF_summary
 RESULT$anova_table
 ```
 
-### 4.2 简单效应分析结果
-
-```{r message=TRUE, warning=FALSE}
-SimpleEffect <- EMMEANS(RESULT, "AffValue", by = "congruency")
-```
-
-### 4.3 图
+### 4.2 图
 
 ```{r}
 ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
@@ -380,6 +364,12 @@ df.m3_PosNeg <- df.hddm %>%
   select(subj_idx, AffValue, response, rt) %>% 
   filter(!is.na(rt))
 write.csv(df.m3_PosNeg, file = 'hddm/df.m3_PosNeg.csv', row.names = FALSE)
+```
+
+### 读取HDDM数据
+
+```{r}
+hddm <- read.csv("output_full.csv")
 ```
 
 ## 待完成事项
