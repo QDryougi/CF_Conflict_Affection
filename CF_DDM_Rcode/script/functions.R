@@ -72,12 +72,12 @@ OuterDetectN <- function(data, index, ...) {
 
 # 拆分block函数
 split_block <- function(m){
-  df.block <- AFF_long %>% 
+  df.block <- long %>% 
     filter(respFlanker.corr == 1 & respAffWord.corr == 1) %>%
     filter(blocks == m) %>% 
     group_by(SubIndex, congruency, AffValue) %>% 
-    filter(respAffWord.rt <= (mean(respAffWord.rt) + 1.96*sd(respAffWord.rt)),
-           respAffWord.rt >= (mean(respAffWord.rt) - 1.96*sd(respAffWord.rt))) %>% 
+    filter(respAffWord.rt <= (mean(respAffWord.rt) + 2.5*sd(respAffWord.rt)),
+           respAffWord.rt >= (mean(respAffWord.rt) - 2.5*sd(respAffWord.rt))) %>% 
     summarise(Acc.target = mean(Acc.Target), RT.target = mean(respAffWord.rt), .groups = "drop")
   df.block$block <- rep(m, nrow(df.block))
   return(df.block)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on April 15, 2024, at 14:09
+    on June 06, 2024, at 23:13
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -28,9 +28,6 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-myMouse.setVisible(0)
-myMouse.setVisible(0)
-myMouse.setVisible(0)
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -235,20 +232,21 @@ respAffInstr = keyboard.Keyboard()
 # Initialize components for Routine "intervals"
 intervalsClock = core.Clock()
 times = [0.3,0.5,0.4,0.35,0.45]
+fixTime=[]
 text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     units='height', pos=(0, 0), height=0.1, wrapWidth=None, ori=0.6, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=-2.0);
 blank = visual.TextStim(win=win, name='blank',
     text=None,
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-2.0);
+    depth=-3.0);
 
 # Initialize components for Routine "AFF_S1"
 AFF_S1Clock = core.Clock()
@@ -272,8 +270,6 @@ respFlanker = keyboard.Keyboard()
 
 # Initialize components for Routine "AFF_S2"
 AFF_S2Clock = core.Clock()
-import random
-
 # 积极词表
 positiveWords = [
     "畅销", "诚恳", "充裕", "典雅",
@@ -306,7 +302,7 @@ AffWord = visual.TextStim(win=win, name='AffWord',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=-2.0);
 respAffWord = keyboard.Keyboard()
 
 # Initialize components for Routine "endPracAff"
@@ -324,20 +320,21 @@ respEndPracA = keyboard.Keyboard()
 # Initialize components for Routine "intervals"
 intervalsClock = core.Clock()
 times = [0.3,0.5,0.4,0.35,0.45]
+fixTime=[]
 text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     units='height', pos=(0, 0), height=0.1, wrapWidth=None, ori=0.6, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=-2.0);
 blank = visual.TextStim(win=win, name='blank',
     text=None,
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-2.0);
+    depth=-3.0);
 
 # Initialize components for Routine "AFF_S1"
 AFF_S1Clock = core.Clock()
@@ -361,8 +358,6 @@ respFlanker = keyboard.Keyboard()
 
 # Initialize components for Routine "AFF_S2"
 AFF_S2Clock = core.Clock()
-import random
-
 # 积极词表
 positiveWords = [
     "畅销", "诚恳", "充裕", "典雅",
@@ -395,7 +390,7 @@ AffWord = visual.TextStim(win=win, name='AffWord',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=-2.0);
 respAffWord = keyboard.Keyboard()
 
 # Initialize components for Routine "restAff"
@@ -606,7 +601,7 @@ for thisReturnPractice in returnPractice:
     # set up handler to look after randomisation of conditions etc
     pracNum = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('NumPractise.xlsx'),
+        trialList=data.importConditions('NumPractise.xlsx', selection='0:1'),
         seed=None, name='pracNum')
     thisExp.addLoop(pracNum)  # add the loop to the experiment
     thisPracNum = pracNum.trialList[0]  # so we can initialise stimuli with some values
@@ -1037,7 +1032,7 @@ for thisComponent in interComponents:
 # set up handler to look after randomisation of conditions etc
 NumBlock1 = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('NumCon.xlsx', selection='0:80'),
+    trialList=data.importConditions('NumCon.xlsx', selection='0:1'),
     seed=None, name='NumBlock1')
 thisExp.addLoop(NumBlock1)  # add the loop to the experiment
 thisNumBlock1 = NumBlock1.trialList[0]  # so we can initialise stimuli with some values
@@ -1297,7 +1292,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 NumBlock2 = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('NumCon.xlsx', selection='80:160'),
+    trialList=data.importConditions('NumCon.xlsx', selection='80:81'),
     seed=None, name='NumBlock2')
 thisExp.addLoop(NumBlock2)  # add the loop to the experiment
 thisNumBlock2 = NumBlock2.trialList[0]  # so we can initialise stimuli with some values
@@ -1595,7 +1590,6 @@ for thisReturnPrac in returnPrac:
         # ------Prepare to start Routine "intervals"-------
         continueRoutine = True
         # update component parameters for each repeat
-        fixTime = random.choice(times)
         # keep track of which components have finished
         intervalsComponents = [text, blank]
         for thisComponent in intervalsComponents:
@@ -1823,12 +1817,6 @@ for thisReturnPrac in returnPrac:
         continueRoutine = True
         routineTimer.add(2.500000)
         # update component parameters for each repeat
-        if AffValue == 1: # 积极词条件
-            thisWord = random.choice(positiveWords)
-            positiveWords.remove(thisWord)
-        else:
-            thisWord = random.choice(negativeWords)
-            negativeWords.remove(thisWord)
         AffWord.setText(thisWord)
         respAffWord.keys = []
         respAffWord.rt = []
@@ -2127,7 +2115,6 @@ for thisAffBlock in AffBlocks:
         # ------Prepare to start Routine "intervals"-------
         continueRoutine = True
         # update component parameters for each repeat
-        fixTime = random.choice(times)
         # keep track of which components have finished
         intervalsComponents = [text, blank]
         for thisComponent in intervalsComponents:
@@ -2355,12 +2342,6 @@ for thisAffBlock in AffBlocks:
         continueRoutine = True
         routineTimer.add(2.500000)
         # update component parameters for each repeat
-        if AffValue == 1: # 积极词条件
-            thisWord = random.choice(positiveWords)
-            positiveWords.remove(thisWord)
-        else:
-            thisWord = random.choice(negativeWords)
-            negativeWords.remove(thisWord)
         AffWord.setText(thisWord)
         respAffWord.keys = []
         respAffWord.rt = []

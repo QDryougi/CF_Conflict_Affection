@@ -7,7 +7,7 @@
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['姓名'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'姓名': '', '性别': '', '年龄（周岁）': ''}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="" valType="str"/>
@@ -232,7 +232,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="pic\NumEndPrac.PNG" valType="file"/>
+        <Param name="image" updates="constant" val="pic\NumEndPrac.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="NumEndPrac" valType="code"/>
@@ -295,7 +295,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="pic\NumInstr.PNG" valType="file"/>
+        <Param name="image" updates="constant" val="pic\NumInstr.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="Numinstr_p" valType="code"/>
@@ -341,7 +341,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="pic\NumRest.PNG" valType="file"/>
+        <Param name="image" updates="constant" val="pic\NumRest.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="NumRest" valType="code"/>
@@ -474,10 +474,10 @@
       <CodeComponent name="code">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="import random&amp;#10;&amp;#10;# 积极词表&amp;#10;positiveWords = [&amp;#10;    &quot;畅销&quot;, &quot;诚恳&quot;, &quot;充裕&quot;, &quot;典雅&quot;,&amp;#10;    &quot;丰满&quot;, &quot;奉献&quot;, &quot;富丽&quot;, &quot;富足&quot;,&amp;#10;    &quot;公平&quot;, &quot;瑰丽&quot;, &quot;豪放&quot;, &quot;吉祥&quot;,&amp;#10;    &quot;精致&quot;, &quot;敬佩&quot;, &quot;俊秀&quot;, &quot;廉洁&quot;,&amp;#10;    &quot;留恋&quot;, &quot;前进&quot;, &quot;清秀&quot;, &quot;热切&quot;,&amp;#10;    &quot;如愿&quot;, &quot;生动&quot;, &quot;圣洁&quot;, &quot;舒畅&quot;,&amp;#10;    &quot;爽朗&quot;, &quot;顽强&quot;, &quot;旺盛&quot;, &quot;鲜艳&quot;,&amp;#10;    &quot;羡慕&quot;, &quot;享受&quot;, &quot;雄厚&quot;, &quot;秀丽&quot;,&amp;#10;    &quot;永恒&quot;, &quot;优雅&quot;, &quot;有利&quot;, &quot;赞成&quot;,&amp;#10;    &quot;珍藏&quot;, &quot;振作&quot;, &quot;正直&quot;, &quot;卓越&quot;&amp;#10;]&amp;#10;# 消极词表&amp;#10;negativeWords = [&amp;#10;    &quot;悲观&quot;, &quot;别扭&quot;, &quot;嘲笑&quot;, &quot;处罚&quot;,&amp;#10;    &quot;丢失&quot;, &quot;堵塞&quot;, &quot;罚款&quot;, &quot;烦恼&quot;,&amp;#10;    &quot;孤单&quot;, &quot;黑暗&quot;, &quot;胡涂&quot;, &quot;怀疑&quot;,&amp;#10;    &quot;慌忙&quot;, &quot;假冒&quot;, &quot;焦躁&quot;, &quot;禁止&quot;,&amp;#10;    &quot;沮丧&quot;, &quot;懒惰&quot;, &quot;浪费&quot;, &quot;冷笑&quot;,&amp;#10;    &quot;鲁莽&quot;, &quot;落后&quot;, &quot;闷热&quot;, &quot;排斥&quot;,&amp;#10;    &quot;轻率&quot;, &quot;穷苦&quot;, &quot;缺乏&quot;, &quot;撒谎&quot;,&amp;#10;    &quot;伤心&quot;, &quot;失意&quot;, &quot;损害&quot;, &quot;逃避&quot;,&amp;#10;    &quot;消沉&quot;, &quot;心慌&quot;, &quot;厌恶&quot;, &quot;忧虑&quot;,&amp;#10;    &quot;郁闷&quot;, &quot;杂乱&quot;, &quot;争吵&quot;, &quot;自卑&quot;&amp;#10;]" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;var negativeWords, positiveWords;&amp;#10;positiveWords = [&quot;\u7545\u9500&quot;, &quot;\u8bda\u6073&quot;, &quot;\u5145\u88d5&quot;, &quot;\u5178\u96c5&quot;, &quot;\u4e30\u6ee1&quot;, &quot;\u5949\u732e&quot;, &quot;\u5bcc\u4e3d&quot;, &quot;\u5bcc\u8db3&quot;, &quot;\u516c\u5e73&quot;, &quot;\u7470\u4e3d&quot;, &quot;\u8c6a\u653e&quot;, &quot;\u5409\u7965&quot;, &quot;\u7cbe\u81f4&quot;, &quot;\u656c\u4f69&quot;, &quot;\u4fca\u79c0&quot;, &quot;\u5ec9\u6d01&quot;, &quot;\u7559\u604b&quot;, &quot;\u524d\u8fdb&quot;, &quot;\u6e05\u79c0&quot;, &quot;\u70ed\u5207&quot;, &quot;\u5982\u613f&quot;, &quot;\u751f\u52a8&quot;, &quot;\u5723\u6d01&quot;, &quot;\u8212\u7545&quot;, &quot;\u723d\u6717&quot;, &quot;\u987d\u5f3a&quot;, &quot;\u65fa\u76db&quot;, &quot;\u9c9c\u8273&quot;, &quot;\u7fa1\u6155&quot;, &quot;\u4eab\u53d7&quot;, &quot;\u96c4\u539a&quot;, &quot;\u79c0\u4e3d&quot;, &quot;\u6c38\u6052&quot;, &quot;\u4f18\u96c5&quot;, &quot;\u6709\u5229&quot;, &quot;\u8d5e\u6210&quot;, &quot;\u73cd\u85cf&quot;, &quot;\u632f\u4f5c&quot;, &quot;\u6b63\u76f4&quot;, &quot;\u5353\u8d8a&quot;];&amp;#10;negativeWords = [&quot;\u60b2\u89c2&quot;, &quot;\u522b\u626d&quot;, &quot;\u5632\u7b11&quot;, &quot;\u5904\u7f5a&quot;, &quot;\u4e22\u5931&quot;, &quot;\u5835\u585e&quot;, &quot;\u7f5a\u6b3e&quot;, &quot;\u70e6\u607c&quot;, &quot;\u5b64\u5355&quot;, &quot;\u9ed1\u6697&quot;, &quot;\u80e1\u6d82&quot;, &quot;\u6000\u7591&quot;, &quot;\u614c\u5fd9&quot;, &quot;\u5047\u5192&quot;, &quot;\u7126\u8e81&quot;, &quot;\u7981\u6b62&quot;, &quot;\u6cae\u4e27&quot;, &quot;\u61d2\u60f0&quot;, &quot;\u6d6a\u8d39&quot;, &quot;\u51b7\u7b11&quot;, &quot;\u9c81\u83bd&quot;, &quot;\u843d\u540e&quot;, &quot;\u95f7\u70ed&quot;, &quot;\u6392\u65a5&quot;, &quot;\u8f7b\u7387&quot;, &quot;\u7a77\u82e6&quot;, &quot;\u7f3a\u4e4f&quot;, &quot;\u6492\u8c0e&quot;, &quot;\u4f24\u5fc3&quot;, &quot;\u5931\u610f&quot;, &quot;\u635f\u5bb3&quot;, &quot;\u9003\u907f&quot;, &quot;\u6d88\u6c89&quot;, &quot;\u5fc3\u614c&quot;, &quot;\u538c\u6076&quot;, &quot;\u5fe7\u8651&quot;, &quot;\u90c1\u95f7&quot;, &quot;\u6742\u4e71&quot;, &quot;\u4e89\u5435&quot;, &quot;\u81ea\u5351&quot;];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((AffValue === 1)) {&amp;#10;    thisWord = random.choice(positiveWords);&amp;#10;    positiveWords.remove(thisWord);&amp;#10;} else {&amp;#10;    thisWord = random.choice(negativeWords);&amp;#10;    negativeWords.remove(thisWord);&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if AffValue == 1: # 积极词条件&amp;#10;    thisWord = random.choice(positiveWords)&amp;#10;    positiveWords.remove(thisWord)&amp;#10;else:&amp;#10;    thisWord = random.choice(negativeWords)&amp;#10;    negativeWords.remove(thisWord)" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# 积极词表&amp;#10;positiveWords = [&amp;#10;    &quot;畅销&quot;, &quot;诚恳&quot;, &quot;充裕&quot;, &quot;典雅&quot;,&amp;#10;    &quot;丰满&quot;, &quot;奉献&quot;, &quot;富丽&quot;, &quot;富足&quot;,&amp;#10;    &quot;公平&quot;, &quot;瑰丽&quot;, &quot;豪放&quot;, &quot;吉祥&quot;,&amp;#10;    &quot;精致&quot;, &quot;敬佩&quot;, &quot;俊秀&quot;, &quot;廉洁&quot;,&amp;#10;    &quot;留恋&quot;, &quot;前进&quot;, &quot;清秀&quot;, &quot;热切&quot;,&amp;#10;    &quot;如愿&quot;, &quot;生动&quot;, &quot;圣洁&quot;, &quot;舒畅&quot;,&amp;#10;    &quot;爽朗&quot;, &quot;顽强&quot;, &quot;旺盛&quot;, &quot;鲜艳&quot;,&amp;#10;    &quot;羡慕&quot;, &quot;享受&quot;, &quot;雄厚&quot;, &quot;秀丽&quot;,&amp;#10;    &quot;永恒&quot;, &quot;优雅&quot;, &quot;有利&quot;, &quot;赞成&quot;,&amp;#10;    &quot;珍藏&quot;, &quot;振作&quot;, &quot;正直&quot;, &quot;卓越&quot;&amp;#10;]&amp;#10;# 消极词表&amp;#10;negativeWords = [&amp;#10;    &quot;悲观&quot;, &quot;别扭&quot;, &quot;嘲笑&quot;, &quot;处罚&quot;,&amp;#10;    &quot;丢失&quot;, &quot;堵塞&quot;, &quot;罚款&quot;, &quot;烦恼&quot;,&amp;#10;    &quot;孤单&quot;, &quot;黑暗&quot;, &quot;胡涂&quot;, &quot;怀疑&quot;,&amp;#10;    &quot;慌忙&quot;, &quot;假冒&quot;, &quot;焦躁&quot;, &quot;禁止&quot;,&amp;#10;    &quot;沮丧&quot;, &quot;懒惰&quot;, &quot;浪费&quot;, &quot;冷笑&quot;,&amp;#10;    &quot;鲁莽&quot;, &quot;落后&quot;, &quot;闷热&quot;, &quot;排斥&quot;,&amp;#10;    &quot;轻率&quot;, &quot;穷苦&quot;, &quot;缺乏&quot;, &quot;撒谎&quot;,&amp;#10;    &quot;伤心&quot;, &quot;失意&quot;, &quot;损害&quot;, &quot;逃避&quot;,&amp;#10;    &quot;消沉&quot;, &quot;心慌&quot;, &quot;厌恶&quot;, &quot;忧虑&quot;,&amp;#10;    &quot;郁闷&quot;, &quot;杂乱&quot;, &quot;争吵&quot;, &quot;自卑&quot;&amp;#10;]" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="positiveWords = [&quot;\u7545\u9500&quot;, &quot;\u8bda\u6073&quot;, &quot;\u5145\u88d5&quot;, &quot;\u5178\u96c5&quot;, &quot;\u4e30\u6ee1&quot;, &quot;\u5949\u732e&quot;, &quot;\u5bcc\u4e3d&quot;, &quot;\u5bcc\u8db3&quot;, &quot;\u516c\u5e73&quot;, &quot;\u7470\u4e3d&quot;, &quot;\u8c6a\u653e&quot;, &quot;\u5409\u7965&quot;, &quot;\u7cbe\u81f4&quot;, &quot;\u656c\u4f69&quot;, &quot;\u4fca\u79c0&quot;, &quot;\u5ec9\u6d01&quot;, &quot;\u7559\u604b&quot;, &quot;\u524d\u8fdb&quot;, &quot;\u6e05\u79c0&quot;, &quot;\u70ed\u5207&quot;, &quot;\u5982\u613f&quot;, &quot;\u751f\u52a8&quot;, &quot;\u5723\u6d01&quot;, &quot;\u8212\u7545&quot;, &quot;\u723d\u6717&quot;, &quot;\u987d\u5f3a&quot;, &quot;\u65fa\u76db&quot;, &quot;\u9c9c\u8273&quot;, &quot;\u7fa1\u6155&quot;, &quot;\u4eab\u53d7&quot;, &quot;\u96c4\u539a&quot;, &quot;\u79c0\u4e3d&quot;, &quot;\u6c38\u6052&quot;, &quot;\u4f18\u96c5&quot;, &quot;\u6709\u5229&quot;, &quot;\u8d5e\u6210&quot;, &quot;\u73cd\u85cf&quot;, &quot;\u632f\u4f5c&quot;, &quot;\u6b63\u76f4&quot;, &quot;\u5353\u8d8a&quot;];&amp;#10;negativeWords = [&quot;\u60b2\u89c2&quot;, &quot;\u522b\u626d&quot;, &quot;\u5632\u7b11&quot;, &quot;\u5904\u7f5a&quot;, &quot;\u4e22\u5931&quot;, &quot;\u5835\u585e&quot;, &quot;\u7f5a\u6b3e&quot;, &quot;\u70e6\u607c&quot;, &quot;\u5b64\u5355&quot;, &quot;\u9ed1\u6697&quot;, &quot;\u80e1\u6d82&quot;, &quot;\u6000\u7591&quot;, &quot;\u614c\u5fd9&quot;, &quot;\u5047\u5192&quot;, &quot;\u7126\u8e81&quot;, &quot;\u7981\u6b62&quot;, &quot;\u6cae\u4e27&quot;, &quot;\u61d2\u60f0&quot;, &quot;\u6d6a\u8d39&quot;, &quot;\u51b7\u7b11&quot;, &quot;\u9c81\u83bd&quot;, &quot;\u843d\u540e&quot;, &quot;\u95f7\u70ed&quot;, &quot;\u6392\u65a5&quot;, &quot;\u8f7b\u7387&quot;, &quot;\u7a77\u82e6&quot;, &quot;\u7f3a\u4e4f&quot;, &quot;\u6492\u8c0e&quot;, &quot;\u4f24\u5fc3&quot;, &quot;\u5931\u610f&quot;, &quot;\u635f\u5bb3&quot;, &quot;\u9003\u907f&quot;, &quot;\u6d88\u6c89&quot;, &quot;\u5fc3\u614c&quot;, &quot;\u538c\u6076&quot;, &quot;\u5fe7\u8651&quot;, &quot;\u90c1\u95f7&quot;, &quot;\u6742\u4e71&quot;, &quot;\u4e89\u5435&quot;, &quot;\u81ea\u5351&quot;];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -487,6 +487,23 @@
         <Param name="End Routine" updates="constant" val="thisExp.addData(&quot;thisWord&quot;,thisWord)" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="code_js">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="var thisWord, fixTime&amp;#10;&amp;#10;Array.prototype.removeByValue = function (val) {&amp;#10;  for (var i = 0; i &lt; this.length; i++) {&amp;#10;    if (this[i] === val) {&amp;#10;      this.splice(i, 1);&amp;#10;      i--;&amp;#10;    }&amp;#10;  }&amp;#10;  return this;&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((AffValue === 1)) {&amp;#10;    thisWord = positiveWords[Math.floor(Math.random() * positiveWords.length)];&amp;#10;    positiveWords.removeByValue(thisWord);&amp;#10;} else {&amp;#10;    thisWord = negativeWords[Math.floor(Math.random() * negativeWords.length)];&amp;#10;    negativeWords.removeByValue(thisWord);&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_js" valType="code"/>
       </CodeComponent>
       <TextComponent name="AffWord">
         <Param name="color" updates="constant" val="white" valType="color"/>
@@ -739,7 +756,7 @@
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="constant" val="pic\AffEndPrac.PNG" valType="file"/>
+        <Param name="image" updates="constant" val="pic\AffEndPrac.png" valType="file"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="endPracA_p" valType="code"/>
@@ -777,13 +794,30 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="intervals">
+      <CodeComponent name="code_js_1">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixTime = Math.random(times);" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_js_1" valType="code"/>
+      </CodeComponent>
       <CodeComponent name="code_6">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="times = [0.3,0.5,0.4,0.35,0.45]" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="times = [0.3, 0.5, 0.4, 0.35, 0.45];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="fixTime = random.choice(times);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="fixTime = random.choice(times)" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>

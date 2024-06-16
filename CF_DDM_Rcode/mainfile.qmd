@@ -7,176 +7,355 @@ editor: visual
 
 # 毕业论文结果
 
-数据分析系统环境：
+系统环境：
 
 ```{r warning=FALSE}
 library(plyr)
 library(data.table)
 library(tidyverse)
 library(bruceR)
+library(ggstatsplot)
+library(cowplot)
 
 devtools::session_info(pkgs = "loaded")
 ```
 
 ```{r include=FALSE}
 #| echo: false
-# 加载原始数据和初步分析用表
+# 加载函数集与原始数据
 source("script/functions.R")
-source("script/getRaw.R")
+#source("script/getRaw.R")
+#write.csv(df, file = "dataframe.csv")
+df <- read.csv("dataframe.csv")
 
-source("script/Num2word.R")
-source("script/AFF.R")
 ```
+
+## 0 需要解决的问题：
+
+1.  ~~转换代价用一个block，还是2个block？~~
+2.  ~~把转换代价反过来在转为正数（这样子符合直觉一些）~~
+3.  ~~将拆分的block合回来~~
+4.  要怎么处理时间引入的变异？（查查文献？）
+5.  不同RT基线的效应
 
 ## 1 预处理
 
-检验被试原则：±2.5个标准差
+-   原则：
+    -   试次排除原则：依据subj_x / congruency / v alue / block分组筛选 ±1.96个标准差（95%CI）
 
-检验RT原则：依据subj_x / congruency / v alue / block分组筛选
+### 1.1 数字字母转换任务
 
-### 1.1 离群值检测
+```{r include=FALSE}
+# 初始化长数据框
+# 提取出数字字母转换任务所在行，并移除每个blcok的第一行
+Numsub <- length(df$name)/480
+
+CF_long <- df[-seq(1,length(df$SubIndex),80),] %>%
+  filter(respNum2word.corr >= 0) %>% 
+  mutate(block = rep(1:2, times = 60, each = 79)) %>% 
+  select(c(SubIndex, block, transType, respNum2word.corr, respNum2word.rt))
+```
+
+按照(SubIndex, transType, block)分组汇总，计算错误率。 这里按照block分组计算错误率，意味着预设时间效应存在。
+
+```{r}
+CF_long %>% 
+  group_by(SubIndex, transType, block) %>% 
+  summarise(Accuracy = errRate(respNum2word.corr), .groups = 'drop') %>% 
+  merge(CF_long, by = c("SubIndex", "transType", "block"),all.x = TRUE) ->
+  CF_long
+
+CF_long %>% 
+  filter(respNum2word.corr == 1) %>%
+  group_by(SubIndex, transType, block) %>% 
+  filter(respNum2word.rt <= (mean(respNum2word.rt) + 2.5*sd(respNum2word.rt)),
+          respNum2word.rt >= (mean(respNum2word.rt) - 2.5*sd(respNum2word.rt))) ->
+  CF_long_filtered
+```
+
+分别计算block1、block2的认知灵活性
+
+```{r}
+CF_long_filtered %>% 
+  group_by(SubIndex, transType, block) %>% 
+  summarise(Accuracy = mean(Accuracy), Num2word.rt = mean(respNum2word.rt), .groups = "drop") %>%
+  pivot_wider(names_from = transType,
+              values_from = c(Num2word.rt,Accuracy)) -> CF_wide
+colnames(CF_wide)[3:6] <- c("RT.Trans","RT.Repeat",'ACC.Trans','ACC.Repeat')
+CF_wide <- mutate(CF_wide, switch_cost = RT.Trans - RT.Repeat) %>% 
+  group_by(SubIndex) %>% 
+  mutate(Diff_sc = -diff(switch_cost))
+```
+
+检验是否所有人的转换代价都是先高后低:
+
+```{r}
+CF_wide %>% 
+  group_by(SubIndex) %>% 
+  summarise(Diff = -diff(switch_cost), .groups = "drop") %>% 
+  ggplot()+
+    geom_histogram(aes(Diff), bins = 10, colour = "grey")
+```
+
+从直方图可以较为明显的看出结果并不是，因此，使用总的转换代价（(b1+b2)/2）作为指标。
+
+```{r}
+CF_long_filtered %>% 
+  group_by(SubIndex, transType) %>% 
+  summarise(Accuracy = mean(Accuracy), Num2word.rt = mean(respNum2word.rt), .groups = "drop") %>% 
+  group_by(SubIndex) %>% 
+  mutate(cogflex = diff(Num2word.rt) + 1200) %>% 
+  mutate(switch_cost = -diff(Num2word.rt)) %>% 
+  cbind(CF_wide$Diff_sc) %>% 
+  rename(diff_sc = ...7) %>% 
+  mutate(transType = ifelse(transType == 1, "Trans", "Repeat")) %>% 
+  pivot_wider(names_from = transType,
+              values_from = c(Num2word.rt,Accuracy)) -> CF_wide
+CF_wide$cogflex_ce = scale(CF_wide$cogflex)
+```
+
+### 1.2 情绪启动任务
+
+1.  初始化数据表
+```{r}
+AFF_long <- df %>%
+  filter(respFlanker.corr >= 0) %>%
+  select(c(SubIndex, sex, age, AffBlocks.thisN, congruency, 
+           AffValue, respFlanker.corr, respFlanker.rt, respAffWord.corr, respAffWord.rt, thisWord)) %>% 
+  rename(blocks = AffBlocks.thisN)
+```
+
+```{r}
+AFF_long %>% 
+  group_by(SubIndex, congruency, AffValue, blocks) %>% 
+  summarise(Acc.prime = errRate(respFlanker.corr), Acc.Target = errRate(respAffWord.corr), .groups = "drop") %>% 
+  merge(AFF_long, by = c("SubIndex", 'congruency', 'AffValue', 'blocks'), all.x = TRUE) %>% 
+  mutate(congruency = ifelse(congruency == 0, "Co", "Ic"),
+         AffValue = ifelse(AffValue == 0, "neg", "pos")) ->
+  AFF_long
+
+AFF_long %>% 
+  filter(respFlanker.corr == 1) %>% 
+  group_by(SubIndex, congruency) %>% 
+  filter(respFlanker.rt <= (mean(respFlanker.rt) + 2.5*sd(respFlanker.rt)),
+         respFlanker.rt >= (mean(respFlanker.rt) - 2.5*sd(respFlanker.rt))) %>% 
+  ungroup() %>% 
+  filter(respAffWord.corr == 1) %>% 
+  group_by(SubIndex, congruency, AffValue, blocks) %>% 
+  filter(respAffWord.rt <= (mean(respAffWord.rt) + 2.5*sd(respAffWord.rt)),
+         respAffWord.rt >= (mean(respAffWord.rt) - 2.5*sd(respAffWord.rt))) ->
+  AFF_long_filtered
+```
+
+检查数据保有量
+
+```{r}
+AFF_long_filtered %>% 
+  group_by(SubIndex) %>% 
+  summarise(trial_num = n(), percentage = (n()/320)*100) %>% 
+  arrange(percentage) -> df.keep
+head(df.keep)
+```
+
+如果以1.96作为准入标准，数据流失较为严重。用2.5会好一些。
+
+2.  形成总宽表，做差（传统方式：RT/ACC体系）：(暂时不考虑block的问题)
+
+```{r}
+Aff_wide_prime <- AFF_long_filtered %>% 
+  group_by(SubIndex, congruency) %>% 
+  summarise(Acc.prime = mean(Acc.prime), RT.prime = mean(respFlanker.rt), .groups = 'drop') %>%
+  pivot_wider(names_from = c(congruency), values_from = c(Acc.prime, RT.prime))
+
+Aff_wide_target <- AFF_long_filtered %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  summarise(Acc.target = mean(Acc.Target), RT.target = mean(respAffWord.rt), .groups = "drop") %>%
+  pivot_wider(names_from = c(congruency, AffValue),
+              values_from = c(Acc.target, RT.target))
+
+AFF_wide <- merge(Aff_wide_prime, Aff_wide_target, by = 'SubIndex') %>% 
+  mutate(rt.Conflict_pos = RT.target_Ic_pos - RT.target_Co_pos,
+         rt.reverse_grade = RT.target_Ic_neg - RT.target_Ic_pos,
+         Acc.Conflict_pos = Acc.target_Ic_pos - Acc.target_Co_pos,
+         Acc.reverse_grade = Acc.target_Ic_neg - Acc.target_Ic_pos,
+         rt.conflict_effect = RT.prime_Ic - RT.prime_Co,
+         Acc.conflict_effect = Acc.prime_Co - Acc.prime_Ic)
+AFF_wide %>% arrange(rt.conflict_effect)
+```
+
+```{r}
+wide <- merge(CF_wide, AFF_wide, by = "SubIndex") %>% 
+  merge(df.keep, by = "SubIndex")
+```
+
+### 1.3 离群值检测
+
+-   检测变量：
+    -   认知灵活性
+    -   转换代价的差值
+    -   冲突效应
+    -   冲突积极性（RT）
+    -   反转强度（RT）
+    -   数据保持量：作为ACC指标
+-   检验方法：依据5个变量计算马哈拉诺比斯距离，并进行卡方检验，P \< 0.01 的被试将被移除
 
 ```{r}
 #| echo: false
-CF_wide %>% OuterDetectN(SubIndex, switch_cost)
-AFF_wide %>% OuterDetectN(SubIndex,  Ic_prime_grade, Conflict_pos)
-```
+df.detect <- wide %>% select(SubIndex, cogflex, diff_sc, rt.conflict_effect,
+                             rt.Conflict_pos, rt.reverse_grade, percentage)
+df.detect$mahalanobis <- mahalanobis(df.detect[,-1], center = colMeans(df.detect[,-1]), 
+                                cov = cov(df.detect[,-1]))
+df.detect$P <- 1 - pchisq(df.detect$mahalanobis, df = (length(colnames(df.detect))-2))
+OUTERS <- append(c(), df.detect[which(df.detect$P  < 0.01),][['SubIndex']])
 
-```{r warning=FALSE}
-#| echo: false
-OUTERS <- c(11,23,16,33)
+OUTERS
 ```
 
 ```{r}
-# 加载预分析用数据
-AFF_long_Sim <- filter(AFF_long, !(SubIndex %in% OUTERS))
+# 在总表中去除离群点
+AFF_long <- filter(AFF_long, !(SubIndex %in% OUTERS))
 
-SimpleTest.frame <- merge(CF_wide, AFF_wide, by = 'SubIndex') %>%
-  filter(!(SubIndex %in% OUTERS)) %>% 
-  select(-c(RT.Trans, RT.Repeat, ACC.Trans, ACC.Repeat))
-SimpleTest.frame
+long <- merge(AFF_long, CF_wide[,c(1,2,4,9)], by = 'SubIndex', all.x = TRUE)
+
+wide <- filter(wide, !(SubIndex %in% OUTERS))
+```
+
+```{r}
+Describe(wide, digits = 4)
 ```
 
 ### 1.2 性别年龄
 
-```{r}
-AFF_long %>% 
+```{r message=TRUE}
+long$sex[which(long$sex == "女")] <- "f"
+long$sex[which(long$sex == "male")] <- "m"
+long %>% 
   group_by(SubIndex) %>% 
-  dplyr::summarise(age = mean(age), sex = first(sex), .groups = "drop") -> test
-mean(test$age)
-sd(test$age)
-
-table(test$sex)
+  dplyr::summarise(age = mean(age), sex = first(sex), .groups = "drop") %>% 
+  group_by(sex) %>% 
+  dplyr::summarise(meanAge = mean(age), SD = sd(age), count = n(), .groups = "drop")
 ```
 
 ## 2 认知灵活性与冲突积极性、不一致启动强度的相关
 
-### 1.1 描述统计
+### 2.1 检验正态性
 
--   这里要改成P-P图
+基于wide表 方法：夏皮洛-威尔克检验(Shapiro—Wilk test)，简称S-W检验。 标准：W接近1,p值大于0.05的数据为正态分布
 
-图1：冲突积极性和不一致启动强度直方图
-
-```{r}
-hist(SimpleTest.frame$Conflict_pos)
-```
+-   cogflex
 
 ```{r}
-hist(SimpleTest.frame$Ic_prime_grade)
+shapiro.test(wide$switch_cost)
 ```
 
-图3：认知灵活性直方图
+-   rt
 
 ```{r}
-hist(SimpleTest.frame$switch_cost)
+shapiro.test(wide$rt.Conflict_pos)
+shapiro.test(wide$rt.reverse_grade)
 ```
 
-### 1.2 转换代价与冲突积极性的相关
+检验结果表明，数据均为正态。
 
-冲突积极启动强度（$RT_{消极}-RT_{积极}$），反映情绪反转效应的强度，如果为负则未发生反转，如果为正，则发生了。
+### 1.2 相关性检验：验证认知灵活性与情绪反转效应的相关
+
+反转强度（$RT_{消极}-RT_{积极}$），反映情绪反转效应的强度，如果为负则未发生反转，如果为正，则发生了。
 
 冲突的作用是激活消极情绪，从而干扰对积极情绪的反应。因此，当冲突被解决后，可以观察到对消极情绪的反应速度减缓
 
-#### 1.2.1 比较一致和不一致条件下的积极词RT
-
 ```{r}
-plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
-cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Conflict_pos)
+ggcorrmat(
+  data = wide[,c("cogflex", "diff_sc", "rt.conflict_effect","rt.Conflict_pos", "rt.reverse_grade")], 
+)
 ```
 
-#### 1.2.2 比较不一致条件下的不同情绪效价RT差异
+## 3 假设1：转换代价越高，情绪词判断越慢(作废，用DDM)
 
 ```{r}
-plot(SimpleTest.frame$switch_cost, SimpleTest.frame$Ic_prime_grade)
-cor.test(SimpleTest.frame$switch_cost, SimpleTest.frame$Ic_prime_grade)
-```
-
-## 3 假设1：转换代价越高，情绪词判断越慢
-
-### 没有过滤离群值
-
-```{r include=FALSE}
-Hypo_1 <- AFF_long_Sim %>% 
-  filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>% 
+AFF_long_filtered %>% 
+  filter(!(SubIndex %in% OUTERS)) %>% 
   group_by(SubIndex) %>% 
-  summarise(meanRT.G = mean(respAffWord.rt), .groups = 'drop') %>% 
-  cbind(SimpleTest.frame$switch_cost) %>% 
-  mutate(RT.G = meanRT.G - SimpleTest.frame$RT.prime_Co)
-
-Hypo_1 <- AFF_long_Sim %>% 
-  filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>% 
+  mutate(RT_word = mean(respAffWord.rt)) %>% 
   group_by(SubIndex, AffValue) %>% 
-  summarise(meanRT = mean(respAffWord.rt), .groups = 'drop') %>% 
-  pivot_wider(names_from = AffValue, values_from = meanRT) %>% 
-  cbind(SimpleTest.frame$switch_cost) %>% 
-  mutate(RT.pos = pos - SimpleTest.frame$RT.prime_Co, RT.neg = neg - SimpleTest.frame$RT.prime_Co) %>% 
-  merge(Hypo_1, by = c('SubIndex', 'SimpleTest.frame$switch_cost'), all.x = TRUE)
+  summarise(RT_word = mean(RT_word), RT_word_sep = mean(respAffWord.rt), .groups = "drop") %>%
+  pivot_wider(names_from = AffValue, values_from = RT_word_sep) %>% 
+  merge(wide, by = "SubIndex") %>% 
+  mutate(RT_word = RT_word - RT.prime_Co,
+         neg = neg - RT.prime_Co,
+         pos = pos - RT.prime_Co) %>% 
+  select(cogflex, RT_word, pos, neg) %>% 
+  ggcorrmat()
 ```
 
-### 3.1 转换代价与整体情绪词反应时的相关
+## 4 统计分析
+
+### 4.1 实验1：数字-字母转换任务
 
 ```{r}
-cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.G)
+wide %>% 
+  Describe()
+wide %>% 
+  TTEST(y = c("Num2word.rt_Repeat","Num2word.rt_Trans"), paired = TRUE)
 ```
 
-### 3.2 转换代价与积极词反应时的相关
+### 4.2 相关性检验
 
 ```{r}
-cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.pos)
+cor.test(wide$cogflex, wide$rt.Conflict_pos)
+cor.test(wide$cogflex, wide$rt.reverse_grade)
+Corr(data = wide[c("cogflex","rt.reverse_grade")])
 ```
 
-### 3.3 转换代价与消极词反应时的相关
+## 7 情绪反转效应检验
 
 ```{r}
-cor.test(Hypo_1$`SimpleTest.frame$switch_cost`, Hypo_1$RT.neg)
-```
-
-## 4 情绪反转效应检验
-
-```{r include=FALSE}
-# 分析基础数据
-RESULT <- AFF_long %>% 
+long %>% 
   filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
-  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), dv = 'respAffWord.rt')
+  filter(congruency == "Ic") %>% 
+  group_by(SubIndex,AffValue) %>% 
+  summarise(RT = mean(respAffWord.rt), cogflex_ce = first(cogflex_ce), .groups = "drop") %>% 
+  mutate(AffValue = ifelse(AffValue == "neg", "消极", "积极")) %>% 
+  ggplot(aes(x = cogflex_ce, y = RT, color = AffValue)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, aes(color = AffValue), alpha = 0.3)+
+  theme_bw()+ #背景变为白色
+  labs(x = "认知灵活性(标准化)", y = "反应时(ms)", color = "情绪效价")
+
+ggsave("cogflex.png", width = 15, height = 5, dpi = 300)
 ```
 
-### 4.1 方差分析
+```{r}
+# 分析基础数据
+result <- long %>% 
+  filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
+  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'),covariate = "cogflex_ce", dv = 'respAffWord.rt', digits = 3, file = "ACNOVA_rt.docx")
+result %>% 
+  EMMEANS(effect = "congruency") %>% 
+  EMMEANS(effect = "AffValue") %>% 
+  EMMEANS(effect = "cogflex_ce")
+```
 
-#### 描述统计
+### 5.1 方差分析
+
+#### 5.1.1 描述统计
 
 ```{r}
-AFF_merge <- AFF_long %>%
+AFF_merge <- long %>%
   group_by(SubIndex, congruency, AffValue) %>% 
-  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop")
+  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop") %>% 
+  mutate(AffValue = ifelse(AffValue == "neg", "消极", "积极")) %>% 
+  mutate(congruency = ifelse(congruency == "Ic", "冲突", "一致"))
 
-AFF_summary <- AFF_long %>% 
+AFF_summary <- long %>% 
   group_by(SubIndex, congruency, AffValue) %>% 
   dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop") %>% 
   summarySE(measurevar= 'rt', groupvars=c("congruency","AffValue"), na.rm = TRUE) %>% 
   mutate(rt = round(rt,4)) %>% 
   mutate(sd = round(sd,4)) %>% 
   mutate(se = round(se,4)) %>% 
-  mutate(ci = round(ci,4))
+  mutate(ci = round(ci,4)) %>% 
+  mutate(AffValue = ifelse(AffValue == "neg", "消极", "积极"))%>% 
+  mutate(congruency = ifelse(congruency == "Ic", "冲突", "一致"))
 AFF_summary
 ```
 
@@ -202,7 +381,9 @@ ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
                 linewidth=0.5) +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))+ #设置填充的颜色
   theme_bw()+ #背景变为白色
-  labs(x = "Congruency", y = "Reaction Time", title = "Plot of Reaction Time by Congruency and AffValue")
+  labs(x = "一致性", y = "反应时(ms)", fill = "情绪效价")
+
+ggsave("test.png", width = 10, height = 6, dpi = 300)
 ```
 
 ## 5 序列效应
@@ -220,12 +401,12 @@ for (i in c(0:3)) {
 df.block %>%  
   group_by(SubIndex, block, AffValue) %>%  
   arrange(congruency) %>% 
-  summarise(diff_btw_Con = diff(RT.target), .groups = 'drop') %>% # Pos_Ic-Co
+  summarise(冲突积极性 = diff(RT.target), .groups = 'drop') %>% # Pos_Ic-Co
   merge(df.block, by = c("SubIndex", "block", "AffValue"),all.x = TRUE) -> MID
 df.block %>%   
   group_by(SubIndex, block, congruency) %>%
   arrange(AffValue) %>% 
-  summarise(diff_btw_value = -diff(RT.target), .groups = 'drop') %>%
+  summarise(反转强度 = -diff(RT.target), .groups = 'drop') %>%
   merge(MID, by = c("SubIndex", "block", "congruency"),all.x = TRUE) -> df.block
 df.block
 ```
@@ -237,8 +418,29 @@ df.block
 df.block %>% 
   filter(AffValue == 'pos') %>% 
   group_by(SubIndex, block) %>% 
-  dplyr::summarise(con_pos = mean(diff_btw_Con), .groups = 'drop') %>% 
-  MANOVA(subID = "SubIndex", within = "block", dv = "con_pos")
+  dplyr::summarise(冲突积极性 = mean(冲突积极性), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = "block", dv = "冲突积极性")
+
+df.block %>%
+  filter(block == 0 | block ==1) %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(RT = mean(RT.target), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = c("congruency","AffValue"), dv = "RT")
+
+df.block %>%
+  filter(block == 2 | block ==3) %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(RT = mean(RT.target), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = c("congruency","AffValue"), dv = "RT") %>% 
+  EMMEANS(effect = "congruency", by="AffValue") %>% 
+  EMMEANS(effect = "AffValue", by="congruency")
+
+df.block %>%
+  group_by(SubIndex, block,congruency, AffValue) %>% 
+  dplyr::summarise(RT = mean(RT.target), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = c("block","congruency","AffValue"), dv = "RT") %>% 
+  EMMEANS(effect = "AffValue", by ="block") %>% 
+  EMMEANS(effect = "block", by =c("congruency","AffValue"))
 ```
 
 ### 5.3 情绪反转强度 *Ic_neg - Ic_pos*
@@ -248,17 +450,68 @@ df.block %>%
 df.block %>% 
   filter(congruency == 'Ic') %>% 
   group_by(SubIndex, block) %>% 
-  dplyr::summarise(reverse_grade = mean(diff_btw_value), .groups = 'drop') %>% 
-  MANOVA(subID = "SubIndex", within = "block", dv = "reverse_grade")
+  dplyr::summarise(反转强度 = mean(反转强度), .groups = 'drop') %>% 
+  MANOVA(subID = "SubIndex", within = "block", dv = "反转强度") %>% 
+  EMMEANS(effect = "block")
 ```
 
-### 5.4 不同的情绪如何随block变化
+### 5.4 绘图
 
 ```{r}
 df.block %>%
-  group_by(SubIndex, block, AffValue) %>% 
-  dplyr::summarise(RT = mean(RT.target), .groups = 'drop') %>% 
-  MANOVA(subID = "SubIndex", within = c('AffValue',"block"), dv = "RT", sph.correction="GG")
+  filter(AffValue == "pos") %>% 
+  group_by(SubIndex, block) %>% 
+  dplyr::summarise(冲突积极性 = mean(冲突积极性), .groups = 'drop') %>% 
+  summarySE(measurevar= c('冲突积极性'), groupvars= "block", na.rm = TRUE) ->
+  df1
+
+df.block %>%
+  filter(AffValue == "neg") %>% 
+  group_by(SubIndex, block) %>% 
+  dplyr::summarise(反转强度 = mean(反转强度), .groups = 'drop') %>% 
+  summarySE(measurevar= c('反转强度'), groupvars= "block", na.rm = TRUE) ->
+  df2
+
+
+
+ggplot(df1, aes(x = block, y = 冲突积极性))+
+  geom_line(linewidth=0.8, color="#F5AE6B") +
+  geom_point(pch=19, position=position_dodge(0.35), size=3,color="#F5AE6B") + #绘制均值点图
+  geom_errorbar(aes(ymin = 冲突积极性-ci, ymax=冲突积极性+ci), #误差条表示95%的置信区间
+                width=0.1, #误差条末端短横线的宽度
+                position=position_dodge(0.35),
+                color="#F5AE6B",
+                alpha = 0.7,
+                linewidth=1)+
+  geom_line(data = df2, aes(x = block, y = 反转强度),color="#56B4E9",linewidth=0.8)+
+  geom_point(data = df2, aes(x = block, y = 反转强度), 
+             pch=19, position=position_dodge(0.35), size=3,color="#56B4E9") +
+  geom_errorbar(data = df2, 
+                aes(x= block, y = 反转强度, ymin = 反转强度-ci, ymax=反转强度+ci),
+                width=0.1,
+                position=position_dodge(0.35),
+                color="#56B4E9",
+                alpha = 0.7,
+                linewidth=1)+
+  theme_bw()
+
+ggsave("seq.png", dpi = 300, width = 10, height = 6)
+```
+
+```{r}
+df.block %>% 
+  filter(AffValue == 'pos') %>% 
+  group_by(block, congruency) %>% 
+  dplyr::summarise(RT_pos = mean(RT.target), .groups = 'drop') %>% 
+  ggplot(aes(x = block, y = RT_pos, color = congruency)) +
+  geom_line()
+
+df.block %>% 
+  filter(congruency == 'Ic') %>% 
+  group_by(block, AffValue) %>% 
+  dplyr::summarise(RT_Ic = mean(RT.target), .groups = 'drop') %>% 
+  ggplot(aes(x = block, y = RT_Ic, color = AffValue)) +
+  geom_line()
 ```
 
 冲突解决的积极情绪的相对强度随着时间增加逐渐减弱：
@@ -271,25 +524,105 @@ df.block %>%
 
 可能性2：疲劳带来的情绪变化
 
-## 6 HDDM
+## 7 线性混合效应模型
 
-```{r include=FALSE}
-df.hddm <- AFF_long
+```{r}
+df.lm <- long %>% filter(respFlanker.corr == 1, respFlanker.corr == 1) %>% 
+  merge(select(wide, c("SubIndex","rt.conflict_effect", "rt.reverse_grade")),by = "SubIndex", all.x = TRUE) %>%  
+  mutate(blocks = blocks + 1)
 ```
 
-### 思路1：直接导出2×2的表格进行两水平的分析
+```{r}
+df.lm %>% 
+  group_by(SubIndex, conf) %>% 
+  dplyr::summarise(RT = mean(respAffWord.rt), cogflex = first(cogflex), .groups = 'drop') -> 
+  df.m
+m <- lm(RT ~ conf*cogflex, df.m)
+summary(m)
+```
+
+```{r}
+m.2 <- lmer(respAffWord.rt ~ congruency*AffValue*cogflex_ce + blocks + (1 + blocks|SubIndex) + (1|thisWord),df.lm)
+summary(m.2)
+```
+
+```{r}
+m.3 <- lmer(respAffWord.rt ~ congruency + AffValue + cogflex_ce + congruency:AffValue + AffValue:cogflex_ce + blocks + (1 + blocks|SubIndex) + (1|thisWord),df.lm)
+summary(m.3)
+```
+
+```{r}
+m.4 <- lmer(respAffWord.rt ~ congruency + AffValue*cogflex_ce + blocks + (1 + blocks|SubIndex) + (1|thisWord),df.lm)
+summary(m.4)
+```
+```{r}
+allFit(m.2)
+allFit(m.3)
+allFit(m.4)
+```
+
+```{r}
+anova(m.2, m.3)
+```
+
+## 6 HDDM
+
+```{r}
+
+wide.hddm %>% 
+  rename("认知灵活性" = cogflex_ce, "漂移率" = v) %>% 
+  ggplot(aes(x=认知灵活性, y= 漂移率)) +
+  geom_point(size = 1.5,color = "#F5AE6B")+
+  geom_smooth(method = "lm", se = FALSE, color = "#F5AE6B")+
+  theme_bw() ->plot.v
+
+wide.hddm %>% 
+  rename("认知灵活性" = cogflex_ce, "反转强度" = rt.reverse_grade) %>% 
+  ggplot(aes(x=认知灵活性, y= 反转强度)) +
+  geom_point(size = 1.5,color = "#56B4E9")+
+  geom_smooth(method = "lm", se = FALSE, color = "#56B4E9")+
+  theme_bw() -> plot.re
+
+plot_grid(plot.v, plot.re, labels = c("A", "B"))
+ggsave("corTest.png", dpi = 300, height = 5, width = 10)
+```
+
+```{r include=FALSE}
+df.hddm <- long
+```
+
+### 导出数据表，对condition进行合并
 
 ```{r}
 df.m1 <- df.hddm %>% 
   filter(respFlanker.corr == 1) %>%
-  filter(!(SubIndex %in% OUTERS)) %>% 
   mutate(response = respAffWord.corr) %>% 
   mutate(subj_idx = SubIndex) %>% 
   mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, congruency, AffValue, response, rt) %>% 
+  select(subj_idx, congruency, AffValue, response, rt, cogflex) %>% 
+  mutate(conf = paste(congruency, AffValue, sep = "_")) %>% 
   filter(!is.na(rt))
 
 write.csv(df.m1, file = 'hddm/df.m1.csv', row.names = FALSE)
+```
+
+```{r}
+hddm <- read.csv("v.csv")
+
+hddm %>% mutate(SubIndex = as.numeric(gsub("[^0-9]", "", .$subject))) %>% 
+  select(SubIndex, para, mean) %>% 
+  pivot_wider(names_from = para, values_from = mean) %>% 
+  merge(wide, by = "SubIndex") -> wide.hddm
+```
+
+```{r}
+cor.test(wide.hddm$cogflex_ce, wide.hddm$t)
+cor.test(wide.hddm$cogflex_ce, wide.hddm$z)
+cor.test(wide.hddm$cogflex_ce, wide.hddm$v) #认知灵活性与被试的漂移率
+
+shapiro.test(wide.hddm$t)
+shapiro.test(wide.hddm$z)
+shapiro.test(wide.hddm$v)
 ```
 
 假设：
@@ -298,86 +631,16 @@ write.csv(df.m1, file = 'hddm/df.m1.csv', row.names = FALSE)
 
 效价和启动类型影响v、z
 
-### 思路2：导出4个Condition,，分别建模
+#### 关键问腿：怎么检查是否发生过度拟合？
 
-```{r}
-df.m2_Co_pos <- df.hddm %>% 
-  filter(respFlanker.corr == 1, congruency == "Co", AffValue == "pos") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m2_Co_pos, file = 'hddm/df.m2_Co_pos.csv', row.names = FALSE)
-
-df.m2_Co_neg <- df.hddm %>% 
-  filter(respFlanker.corr == 1, congruency == "Co", AffValue == "neg") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m2_Co_neg, file = 'hddm/df.m2_Co_neg.csv', row.names = FALSE)
-
-df.m2_Ic_pos <- df.hddm %>% 
-  filter(respFlanker.corr == 1, congruency == "Ic", AffValue == "pos") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m2_Ic_pos, file = 'hddm/df.m2_Ic_pos.csv', row.names = FALSE)
-
-df.m2_Ic_neg <- df.hddm %>% 
-  filter(respFlanker.corr == 1, congruency == "Ic", AffValue == "neg") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m2_Ic_neg, file = 'hddm/df.m2_Ic_neg.csv', row.names = FALSE)
-```
-
-### 思路3：按照单独导出作差的两种情况
-
-3.1 导出积极情绪组，比较co和ic
-
-```{r}
-df.m3_IcCo <- df.hddm %>% 
-  filter(respFlanker.corr == 1, AffValue == "pos") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, congruency, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m3_IcCo, file = 'hddm/df.m3_IcCo.csv', row.names = FALSE)
-```
-
-3.2 导出冲突条件，比较pos和neg
-
-```{r}
-df.m3_PosNeg <- df.hddm %>% 
-  filter(respFlanker.corr == 1, congruency == "Ic") %>%
-  mutate(response = respAffWord.corr) %>% 
-  mutate(subj_idx = SubIndex) %>% 
-  mutate(rt = respAffWord.rt/1000) %>% 
-  select(subj_idx, AffValue, response, rt) %>% 
-  filter(!is.na(rt))
-write.csv(df.m3_PosNeg, file = 'hddm/df.m3_PosNeg.csv', row.names = FALSE)
-```
-
-### 读取HDDM数据
-
-```{r}
-hddm <- read.csv("output_full.csv")
-```
+可以根据模型参数
 
 ## 待完成事项
 
-1.  对各个数据绘制直方图，进行正态性检验
-2.  计算冲突效应大小（做相关）
+1.  ~~相关没有了，很奇怪，明天找原因。~~
+2.  ~~计算冲突效应大小（做相关）~~
 3.  检验跨block效应并绘图(需要优化加工，加上散点、误差棒)+目前计算的时积极启动效应(block拆分部分的数值计算有误)
-4.  宽表是经过过滤的，而长表没有
+4.  ~~宽表是经过过滤的，而长表没有~~
 5.  没有做传统的ACC数据分析
 
 ## 奇怪的问题

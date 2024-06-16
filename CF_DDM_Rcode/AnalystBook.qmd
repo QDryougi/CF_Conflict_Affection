@@ -1,0 +1,276 @@
+---
+title: "AnalystBook"
+author: "liu"
+format: html
+---
+```{r warning=FALSE}
+library(plyr)
+library(data.table)
+library(tidyverse)
+library(bruceR)
+library(cowplot)
+```
+# 1 获取原始数据
+```{r include=FALSE}
+#| echo: false
+# 加载函数集与原始数据
+source("script/functions.R")
+source("script/getRaw.R")
+write.csv(df, file = "dataframe.csv")
+df <- read.csv("dataframe.csv")
+```
+
+# 2 数据预处理
+## 2.1 数字字母转换任务
+```{r include=FALSE}
+# 初始化长数据框
+# 提取出数字字母转换任务所在行，并移除每个blcok的第一行
+
+CF_long <- df[-seq(1,length(df$SubIndex),80),] %>%
+  filter(respNum2word.corr >= 0) %>% 
+  select(c(SubIndex, 转换类型, respNum2word.corr, respNum2word.rt))
+```
+
+
+
+按照(SubIndex, transType)分组汇总，计算错误率。
+```{r}
+CF_long %>% 
+  group_by(SubIndex, 转换类型) %>% 
+  summarise(Accuracy = errRate(respNum2word.corr), .groups = 'drop') %>% 
+  merge(CF_long, by = c("SubIndex", "转换类型"),all.x = TRUE) ->
+  CF_long
+
+CF_long %>% 
+  filter(respNum2word.corr == 1) %>%
+  group_by(SubIndex, 转换类型) %>% 
+  filter(respNum2word.rt <= (mean(respNum2word.rt) + 2.5*sd(respNum2word.rt)),
+          respNum2word.rt >= (mean(respNum2word.rt) - 2.5*sd(respNum2word.rt))) ->
+  CF_long
+```
+
+```{r}
+CF_long %>% 
+  group_by(SubIndex, 转换类型) %>% 
+  summarise(Accuracy = mean(Accuracy), Num2word.rt = mean(respNum2word.rt), .groups = "drop") %>%
+  pivot_wider(names_from = 转换类型,
+              values_from = c(Num2word.rt, Accuracy)) -> CF_wide
+colnames(CF_wide)[2:5] <- c("RT.Trans","RT.Repeat",'ACC.Trans','ACC.Repeat')
+CF_wide %>% 
+  mutate(switch_cost = RT.Trans - RT.Repeat) %>% 
+  mutate(cogflex = RT.Repeat - RT.Trans + 1200) %>% 
+  mutate(cogflex_ce = scale(cogflex)) -> CF_wide
+```
+
+## 2.2 情绪启动任务
+### 2.2.1 数据清洗
+```{r}
+AFF_long <- df %>%
+  filter(respFlanker.corr >= 0) %>%
+  select(c(SubIndex, AffBlocks.thisN, congruency, 
+           AffValue, respFlanker.corr, respFlanker.rt, respAffWord.corr, respAffWord.rt, thisWord)) %>% 
+  rename(blocks = AffBlocks.thisN)
+
+AFF_long %>% 
+  group_by(SubIndex, congruency, AffValue, blocks) %>% 
+  summarise(Acc.prime = errRate(respFlanker.corr), Acc.Target = errRate(respAffWord.corr), .groups = "drop") %>% 
+  merge(AFF_long, by = c("SubIndex", 'congruency', 'AffValue', 'blocks'), all.x = TRUE) %>% 
+  mutate(congruency = ifelse(congruency == 0, "Co", "Ic"),
+         AffValue = ifelse(AffValue == 0, "neg", "pos")) ->
+  AFF_long
+
+AFF_long %>% 
+  filter(respFlanker.corr == 1) %>% 
+  group_by(SubIndex, congruency) %>% 
+  filter(respFlanker.rt <= (mean(respFlanker.rt) + 2.5*sd(respFlanker.rt)),
+         respFlanker.rt >= (mean(respFlanker.rt) - 2.5*sd(respFlanker.rt))) %>% 
+  ungroup() %>% 
+  filter(respAffWord.corr == 1) %>% 
+  group_by(SubIndex, congruency, AffValue, blocks) %>% 
+  filter(respAffWord.rt <= (mean(respAffWord.rt) + 2.5*sd(respAffWord.rt)),
+         respAffWord.rt >= (mean(respAffWord.rt) - 2.5*sd(respAffWord.rt))) ->
+  AFF_long
+```
+
+检查数据保有量
+```{r}
+AFF_long %>% 
+  group_by(SubIndex) %>% 
+  summarise(trial_num = n(), percentage = (n()/320)*100) %>% 
+  arrange(percentage) ->df.keep
+df.keep
+```
+### 2.2.2 宽表
+```{r}
+Aff_wide_prime <- AFF_long %>% 
+  group_by(SubIndex, congruency) %>% 
+  summarise(Acc.prime = mean(Acc.prime), RT.prime = mean(respFlanker.rt), .groups = 'drop') %>%
+  pivot_wider(names_from = c(congruency), values_from = c(Acc.prime, RT.prime))
+
+Aff_wide_target <- AFF_long %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  summarise(Acc.target = mean(Acc.Target), RT.target = mean(respAffWord.rt), .groups = "drop") %>%
+  pivot_wider(names_from = c(congruency, AffValue),
+              values_from = c(Acc.target, RT.target))
+
+AFF_wide <- merge(Aff_wide_prime, Aff_wide_target, by = 'SubIndex') %>% 
+  mutate(rt.Conflict_pos = RT.target_Ic_pos - RT.target_Co_pos,
+         rt.reverse_grade = RT.target_Ic_neg - RT.target_Ic_pos,
+         rt.reverse_grade_Co = RT.target_Co_neg - RT.target_Co_pos,
+         Acc.Conflict_pos = Acc.target_Ic_pos - Acc.target_Co_pos,
+         Acc.reverse_grade = Acc.target_Ic_neg - Acc.target_Ic_pos,
+         rt.conflict_effect = RT.prime_Ic - RT.prime_Co,
+         Acc.conflict_effect = Acc.prime_Co - Acc.prime_Ic)
+AFF_wide %>% arrange(rt.conflict_effect)
+```
+
+## 2.3 联合清洗
+总宽表
+```{r}
+wide <- merge(CF_wide, AFF_wide, by = "SubIndex") %>% 
+  merge(df.keep, by = "SubIndex")
+```
+
+马氏平方距离筛选
+```{r}
+OUTERS <- wide[which(wide$percentage < 75),][["SubIndex"]]
+
+df.detect <- wide %>% 
+  select(SubIndex, cogflex,rt.conflict_effect,
+         rt.Conflict_pos, rt.reverse_grade, percentage) %>% 
+  filter(!(SubIndex %in% OUTERS))
+df.detect$mahalanobis <- mahalanobis(df.detect[,-1], center = colMeans(df.detect[,-1]), 
+                                cov = cov(df.detect[,-1]))
+df.detect$P <- 1 - pchisq(df.detect$mahalanobis, df = (length(colnames(df.detect))-2))
+OUTERS <- append(OUTERS, df.detect[which(df.detect$P  < 0.01),][['SubIndex']])
+
+OUTERS
+```
+在总表中去除离群点
+```{r}
+AFF_long <- filter(AFF_long, !(SubIndex %in% OUTERS))
+
+long <- merge(AFF_long, CF_wide[,c(1,6,7,8)], by = 'SubIndex', all.x = TRUE)
+
+wide <- filter(wide, !(SubIndex %in% OUTERS))
+```
+
+# 3 研究结果
+## 3.1 描述统计
+性别年龄缺失
+```{r}
+Describe(wide, digits = 3)
+```
+## 3.2 相关性检验
+### 3.2.1 正态性检验
+
+基于wide表 方法：夏皮洛-威尔克检验(Shapiro—Wilk test)，简称S-W检验。 标准：W接近1,p值大于0.05的数据为正态分布
+
+1. cogflex
+
+```{r}
+shapiro.test(wide$switch_cost)
+```
+2. rt
+
+```{r}
+shapiro.test(wide$rt.Conflict_pos)
+shapiro.test(wide$rt.reverse_grade)
+shapiro.test(wide$rt.reverse_grade_Co)
+```
+检验结果表明，数据均为正态。
+
+### 3.2.2 相关检验
+```{r}
+wide %>% 
+  select(cogflex, rt.reverse_grade, rt.reverse_grade_Co, rt.Conflict_pos) %>% 
+  Corr()
+```
+## 3.3 协方差分析
+### 3.3.1 分析
+```{r}
+result.anova <- long %>% 
+  filter(respAffWord.corr == 1 & respFlanker.corr == 1) %>%
+  MANOVA(subID = 'SubIndex' ,within = c('congruency', 'AffValue'), covariate = "cogflex_ce", dv = 'respAffWord.rt', digits = 3)
+result.anova %>% 
+  EMMEANS(effect = "AffValue", by = "congruency")
+```
+### 3.3.2 一致性和效价的交互作用图
+```{r}
+AFF_merge <- long %>%
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop") %>% 
+  mutate(AffValue = ifelse(AffValue == "neg", "消极", "积极")) %>% 
+  mutate(congruency = ifelse(congruency == "Ic", "冲突", "一致"))
+
+AFF_summary <- long %>% 
+  group_by(SubIndex, congruency, AffValue) %>% 
+  dplyr::summarise(rt = mean(respAffWord.rt, na.rm = TRUE), .groups = "drop") %>% 
+  summarySE(measurevar= 'rt', groupvars=c("congruency","AffValue"), na.rm = TRUE) %>% 
+  mutate(rt = round(rt,4)) %>% 
+  mutate(sd = round(sd,4)) %>% 
+  mutate(se = round(se,4)) %>% 
+  mutate(ci = round(ci,4)) %>% 
+  mutate(AffValue = ifelse(AffValue == "neg", "消极", "积极"))%>% 
+  mutate(congruency = ifelse(congruency == "Ic", "冲突", "一致"))
+AFF_summary
+```
+
+```{r}
+ggplot(AFF_merge, aes(x = congruency, y = rt, fill = AffValue)) +
+  geom_split_violin(trim = FALSE, color = "white") +
+  geom_point(data = AFF_summary, aes(x = congruency, y = rt, fill = AffValue),
+             pch=19, position=position_dodge(0.35), size=1.5)+ #绘制均值为点图
+  geom_errorbar(data = AFF_summary,
+                aes(ymin = rt-ci, ymax=rt+ci), #误差条表示95%的置信区间
+                width=0.1, #误差条末端短横线的宽度
+                position=position_dodge(0.35),
+                color="black",
+                alpha = 0.7,
+                linewidth=0.5) +
+  scale_fill_manual(values = c("#56B4E9", "#E69F00"))+ #设置填充的颜色
+  theme_bw()+ #背景变为白色
+  labs(x = "一致性", y = "反应时(ms)", fill = "情绪效价")
+```
+
+## 3.4 线性混合效应模型
+### 3.4.1 数据准备
+```{r}
+long %>% filter(respFlanker.corr == 1, respFlanker.corr == 1) %>% 
+  mutate(blocks = blocks + 1) -> df.lm
+```
+
+### 3.4.2 模型拟合
+1. 简单模型
+```{r}
+m.1 <- lmer(respAffWord.rt ~ congruency*AffValue*cogflex_ce + blocks + (1|SubIndex) + (1|thisWord),df.lm)
+summary(m.1)
+```
+2. 优化模型
+```{r}
+m.2 <- lmer(respAffWord.rt ~ congruency*AffValue*cogflex_ce + blocks + (1 + blocks|SubIndex) + (1|thisWord),df.lm, )
+summary(m.2)
+```
+```{r}
+m.3 <- lmer(respAffWord.rt ~congruency + AffValue + cogflex_ce +
+            congruency:AffValue + AffValue:cogflex_ce + 
+            (1 + congruency + AffValue|SubIndex) + (1 + AffValue|thisWord),df.lm)
+summary(m.3)
+```
+```{r}
+allFit(m.3)
+```
+
+### 3.4.3 模型比较
+```{r}
+#anova(m.1, m.2)
+anova(m.2, m.3)
+```
+
+
+
+
+
+
+
+
